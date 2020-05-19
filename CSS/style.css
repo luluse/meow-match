@@ -16,12 +16,6 @@ section#logo img {
   width: 300px;
 }
 
-h1 {
-  background-color: cadetblue;
-  padding: 10px;
-  text-align: center;
-}
-
 nav.horizontal-nav {
   display: flex;
   float: right;
@@ -30,22 +24,55 @@ nav.horizontal-nav {
   vertical-align: top;
 }
 
+nav.horizontal-nav a:hover {
+  background-color: rgb(218, 224, 242);
+  color: rgb(17, 17, 68);
+}
+
 nav.horizontal-nav a {
-  border-bottom: 3px solid darkmagenta;
-  border-top: 3px solid darkmagenta;
-  padding: 10px;
+  border-bottom: 3px solid rgb(82, 21, 78);
+  border-top: 3px solid rgb(82, 21, 78);
+  color: rgb(82, 21, 78);
+  font-size: 1.6em;
+  padding: 15px;
 }
 
 nav.horizontal-nav a:first-child {
-  border-left: 3px solid darkmagenta;
+  border-left: 3px solid rgb(82, 21, 78);
 }
 
 nav.horizontal-nav a:not(:last-child) {
-  border-right: 3px solid darkmagenta;
+  border-right: 3px solid rgb(82, 21, 78);
 }
 
 nav.horizontal-nav a:last-child {
-  border-right: 3px solid darkmagenta;
+  border-right: 3px solid rgb(82, 21, 78);
+}
+
+h1 {
+  background-color: cadetblue;
+  font-size: 2.6em;
+  padding: 10px;
+  text-align: center;
+}
+
+section#intro {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 75%;
+  padding: 5px;
+  text-align: center;
+}
+
+section#intro h2 {
+  font-size: 1.3em;
+  padding: 5px;
+}
+
+section#intro p {
+  font-size: 0.6em;
+  text-align: right;
 }
 
 section#card-match {
@@ -56,13 +83,14 @@ section#card-match {
 }
 
 div.card {
-  border: 3px solid black;
+  border: 4px solid cadetblue;
+  border-radius: 10px;
   margin: 25px;
   width: 250px;
   height: 350px;
 }
 
-img {
+section#card-match img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -77,6 +105,28 @@ button {
   height: 50px;
 }
 
+footer>nav {
+  align-items: center;
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 50%;
+}
+
+footer>nav a {
+  padding: 5px;
+  text-align: center;
+}
+
+footer>nav img {
+  width: 50px;
+}
+
+span#footer-nav-spacer {
+  width: 175px;
+}
 
 /* Animations */
 .left-presentation {
