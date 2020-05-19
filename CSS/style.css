@@ -4,6 +4,50 @@ header>section {
   height: 200px;
 }
 
+section#logo {
+  float: left;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+section#logo img {
+  position: absolute;
+  left: calc(50% - 150px);
+  width: 300px;
+}
+
+h1 {
+  background-color: cadetblue;
+  padding: 10px;
+  text-align: center;
+}
+
+nav.horizontal-nav {
+  display: flex;
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+
+nav.horizontal-nav a {
+  border-bottom: 3px solid darkmagenta;
+  border-top: 3px solid darkmagenta;
+  padding: 10px;
+}
+
+nav.horizontal-nav a:first-child {
+  border-left: 3px solid darkmagenta;
+}
+
+nav.horizontal-nav a:not(:last-child) {
+  border-right: 3px solid darkmagenta;
+}
+
+nav.horizontal-nav a:last-child {
+  border-right: 3px solid darkmagenta;
+}
+
 section#card-match {
   align-items: center;
   display: flex;
