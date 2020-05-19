@@ -4,6 +4,88 @@ header>section {
   height: 200px;
 }
 
+section#logo {
+  float: left;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+section#logo img {
+  position: absolute;
+  left: calc(50% - 150px);
+  width: 300px;
+}
+
+nav.horizontal-nav {
+  display: flex;
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+
+nav.horizontal-nav a:hover {
+  background-color: rgb(218, 224, 242);
+  color: rgb(17, 17, 68);
+}
+
+nav.horizontal-nav a {
+  border-bottom: 3px solid rgb(82, 21, 78);
+  border-top: 3px solid rgb(82, 21, 78);
+  color: rgb(82, 21, 78);
+  font-size: 1.6em;
+  padding: 15px;
+}
+
+nav.horizontal-nav a:first-child {
+  border-left: 3px solid rgb(82, 21, 78);
+}
+
+nav.horizontal-nav a:not(:last-child) {
+  border-right: 3px solid rgb(82, 21, 78);
+}
+
+nav.horizontal-nav a:last-child {
+  border-right: 3px solid rgb(82, 21, 78);
+}
+
+h1 {
+  background-color: cadetblue;
+  font-size: 2.6em;
+  padding: 10px;
+  text-align: center;
+}
+
+section#matches-title h1 {
+  background-color: white;
+  font-size: 2.6em;
+  padding: 10px;
+  text-align: center;
+}
+
+section#matches-list {
+  margin: 10px 0px;
+}
+
+section#intro {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 75%;
+  padding: 5px;
+  text-align: center;
+}
+
+section#intro h2 {
+  font-size: 1.3em;
+  padding: 5px;
+}
+
+section#intro p {
+  font-size: 0.6em;
+  text-align: right;
+}
+
 section#card-match {
   align-items: center;
   display: flex;
@@ -12,13 +94,14 @@ section#card-match {
 }
 
 div.card {
-  border: 3px solid black;
+  border: 4px solid cadetblue;
+  border-radius: 10px;
   margin: 25px;
   width: 250px;
   height: 350px;
 }
 
-img {
+section#card-match img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -26,13 +109,42 @@ img {
 button {
   background-color: cadetblue;
   border: none;
-  color: darkmagenta;
+  color: rgb(82, 21, 78);
   display: block;
+  font-size: 1.2em;
   margin-top: 20px;
   width: 125px;
   height: 50px;
 }
 
+footer>nav {
+  align-items: center;
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 50%;
+}
+
+footer>nav a {
+  padding: 5px;
+  text-align: center;
+}
+
+footer>nav img {
+  width: 50px;
+}
+
+span#footer-nav-spacer {
+  width: 175px;
+}
+
+footer h3 {
+  font-size: 1.2em;
+  margin: 10px 0px;
+  text-align: center;
+}
 
 /* Animations */
 .left-presentation {
