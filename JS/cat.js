@@ -2,6 +2,8 @@
 
 var allCats = [];
 var renderedCats = [];
+var matchedCatsKey = 'cat-matches';
+var matchedCats = [];
 // var totalRounds = [];
 var parentLeft = document.getElementById('left-card');
 var parentRight = document.getElementById('right-card');
@@ -94,7 +96,24 @@ displayImages();
 // cats that match sent on local storage
 
 function catsSendtoLocalStorage(){
-  localStorage.setItem(JSON.stringify(new Date()), JSON.stringify(renderedCats));
+  window.localStorage.setItem(matchedCatsKey, JSON.stringify(matchedCats));
+}
+
+function restoreMatchedCatsFromStorage() {
+  var parsedMatchedCats = JSON.parse(window.localStorage.getItem(matchedCatsKey));
+  if (parsedMatchedCats) {
+    for (var i = 0; i < parsedMatchedCats.length; i++) {
+      var onePairOfMatchedCats = parsedMatchedCats[i];
+      var pairOfMatchedCatsArray = [];
+      for (var j = 0; j < onePairOfMatchedCats.length; j++) {
+        var oneMatchedCat = onePairOfMatchedCats[j];
+        pairOfMatchedCatsArray.push(
+          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title)
+        );
+      }
+      matchedCats.push(pairOfMatchedCatsArray);
+    }
+  }
 }
 
 // get matches from local storage to render on matches.html page
@@ -108,8 +127,8 @@ function catsSendtoLocalStorage(){
 
 // buttons event listener functions
 function handleMatchButton(event){
+  matchedCats.push(renderedCats);
   catsSendtoLocalStorage();
-
   parentLeft.textContent = '';
   parentRight.textContent = '';
   displayImages();
@@ -121,32 +140,34 @@ function handleNonMatchButton(event){
   displayImages();
 }
 
+restoreMatchedCatsFromStorage();
+
 //event listener for match and non-match buttons
 document.getElementById('match-button').addEventListener('click', handleMatchButton);
 document.getElementById('non-match-button').addEventListener('click', handleNonMatchButton);
 
 
 //Get out of local storage
-function catsOutOfLocalStorage(){
-  var jSonToJava = localStorage.getItem(JSON.stringify(new Date()));
-  jSonToJava = JSON.parse(jSonToJava);
-  for (var i=0; i<jSonToJava.length; i++){
-    new CatImages(jSonToJava[i].filepath,jSonToJava[i].alt, jSonToJava[i].title);
-    var matchesToMatchesPage = document.createElement('img');
-    matchesToMatchesPage.src=this.filepath;
-    matchesToMatchesPage.alt=this.alt;
-    matchesToMatchesPage.title=this.title;
-    parentMatches.appendChild(matchesToMatchesPage);
-  }
+// function catsOutOfLocalStorage(){
+//   var jSonToJava = localStorage.getItem(matchedCatsKey);
+//   jSonToJava = JSON.parse(jSonToJava);
+//   for (var i=0; i<jSonToJava.length; i++){
+//     new CatImages(jSonToJava[i].filepath,jSonToJava[i].alt, jSonToJava[i].title);
+//     var matchesToMatchesPage = document.createElement('img');
+//     matchesToMatchesPage.src=this.filepath;
+//     matchesToMatchesPage.alt=this.alt;
+//     matchesToMatchesPage.title=this.title;
+//     parentMatches.appendChild(matchesToMatchesPage);
+//   }
 
-}
+// }
 
 //render to the DOM
 // function displayMatchesToDom(){
 // }
 
 
-catsOutOfLocalStorage();
+// catsOutOfLocalStorage();
 
 //render the bios to the matches in the DOM
 
