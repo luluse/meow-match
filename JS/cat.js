@@ -2,9 +2,13 @@
 
 var allCats = [];
 var renderedCats = [];
-var totalRounds = [];
+var matchedCatsKey = 'cat-matches';
+var matchedCats = [];
+// var totalRounds = [];
 var parentLeft = document.getElementById('left-card');
 var parentRight = document.getElementById('right-card');
+var parentMatches = document.getElementById('matches-list');
+
 
 // create my constructor function to hold my cats instances
 function CatImages(url, alt, title){
@@ -68,31 +72,48 @@ function displayImages(){
   allCats[index[0]].render(parentLeft);
   allCats[index[1]].render(parentRight);
 
-  totalRounds++;
+  // totalRounds++;
 }
 
 // create 12 rounds
-if (totalRounds === 12){
-  //stop the event listener
-}
+// if (totalRounds === 12){
+//stop the event listener
+// }
 
 displayImages();
-new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz');
-new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff');
-new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia');
-new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet');
-new CatImages('img/fritz.jpg', 'fritz', 'fritz');
-new CatImages('img/judy.jpg', 'judy', 'judy');
-new CatImages('img/poncho.jpg', 'poncho', 'poncho');
-new CatImages('img/romy.jpg', 'romy', 'romy');
-new CatImages('img/saffron.jpg', 'saffron', 'saffron');
-new CatImages('img/sasha.jpg', 'sasha', 'sasha');
-new CatImages('img/taz.jpg', 'taz', 'taz');
-new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers');
+// new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz');
+// new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff');
+// new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia');
+// new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet');
+// new CatImages('img/fritz.jpg', 'fritz', 'fritz');
+// new CatImages('img/judy.jpg', 'judy', 'judy');
+// new CatImages('img/poncho.jpg', 'poncho', 'poncho');
+// new CatImages('img/romy.jpg', 'romy', 'romy');
+// new CatImages('img/saffron.jpg', 'saffron', 'saffron');
+// new CatImages('img/sasha.jpg', 'sasha', 'sasha');
+// new CatImages('img/taz.jpg', 'taz', 'taz');
+// new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers');
 // cats that match sent on local storage
 
 function catsSendtoLocalStorage(){
-  localStorage.setItem(JSON.stringify(new Date()), JSON.stringify(renderedCats));
+  window.localStorage.setItem(matchedCatsKey, JSON.stringify(matchedCats));
+}
+
+function restoreMatchedCatsFromStorage() {
+  var parsedMatchedCats = JSON.parse(window.localStorage.getItem(matchedCatsKey));
+  if (parsedMatchedCats) {
+    for (var i = 0; i < parsedMatchedCats.length; i++) {
+      var onePairOfMatchedCats = parsedMatchedCats[i];
+      var pairOfMatchedCatsArray = [];
+      for (var j = 0; j < onePairOfMatchedCats.length; j++) {
+        var oneMatchedCat = onePairOfMatchedCats[j];
+        pairOfMatchedCatsArray.push(
+          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title)
+        );
+      }
+      matchedCats.push(pairOfMatchedCatsArray);
+    }
+  }
 }
 
 // get matches from local storage to render on matches.html page
@@ -106,8 +127,8 @@ function catsSendtoLocalStorage(){
 
 // buttons event listener functions
 function handleMatchButton(event){
+  matchedCats.push(renderedCats);
   catsSendtoLocalStorage();
-
   parentLeft.textContent = '';
   parentRight.textContent = '';
   displayImages();
@@ -119,6 +140,37 @@ function handleNonMatchButton(event){
   displayImages();
 }
 
+restoreMatchedCatsFromStorage();
+
 //event listener for match and non-match buttons
 document.getElementById('match-button').addEventListener('click', handleMatchButton);
 document.getElementById('non-match-button').addEventListener('click', handleNonMatchButton);
+
+
+//Get out of local storage
+// function catsOutOfLocalStorage(){
+//   var jSonToJava = localStorage.getItem(matchedCatsKey);
+//   jSonToJava = JSON.parse(jSonToJava);
+//   for (var i=0; i<jSonToJava.length; i++){
+//     new CatImages(jSonToJava[i].filepath,jSonToJava[i].alt, jSonToJava[i].title);
+//     var matchesToMatchesPage = document.createElement('img');
+//     matchesToMatchesPage.src=this.filepath;
+//     matchesToMatchesPage.alt=this.alt;
+//     matchesToMatchesPage.title=this.title;
+//     parentMatches.appendChild(matchesToMatchesPage);
+//   }
+
+// }
+
+//render to the DOM
+// function displayMatchesToDom(){
+// }
+
+
+// catsOutOfLocalStorage();
+
+//render the bios to the matches in the DOM
+
+//create an input box for the users to name the matches
+
+//render the named matches to the DOM
