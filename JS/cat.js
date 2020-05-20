@@ -1,11 +1,28 @@
 'use strict';
 
+
+var uniqueIndexArray = [];
+var sentences = [`${pairOfMatchedCats[0].title} got too wound up on coffee and fell asleep, ${pairOfMatchedCats[1].title} was upset.`,
+  `${pairOfMatchedCats[0].title} went hosted a large party and invited all of their friends, and ${pairOfMatchedCats[1].title} came along for the fun.`,
+  `${pairOfMatchedCats[0].title} got lost in a book and never showed up for their playdate ${pairOfMatchedCats[1].title} kept calling and calling, but never got through.`,
+  `${pairOfMatchedCats[0].title} decided to ${pairOfMatchedCats[1].title} on a fun safari meeting all sorts of different animals.`];
+
+
 // create my constructor function to hold my cats instances
-function CatImages(url, alt, title){
+function CatImages(url, alt, title, a, uniqueIndexArray){
   this.filePath = url;
   this.alt = alt;
   this.title = title;
+  this.a = a;
+  this.b = uniqueIndexArray;
+  // this.c = c;
+  // this.d = d;
+
+
+
   allCats.push(this);
+
+
 }
 CatImages.prototype.render = function(rootElement){
   var imageElement = document.createElement('img');
@@ -18,18 +35,20 @@ CatImages.prototype.render = function(rootElement){
   rootElement.appendChild(imageElement);
 };
 
-new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz');
-new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff');
-new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia');
-new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet');
-new CatImages('img/fritz.jpg', 'fritz', 'fritz');
-new CatImages('img/judy.jpg', 'judy', 'judy');
-new CatImages('img/poncho.jpg', 'poncho', 'poncho');
-new CatImages('img/romy.jpg', 'romy', 'romy');
-new CatImages('img/saffron.jpg', 'saffron', 'saffron');
-new CatImages('img/sasha.jpg', 'sasha', 'sasha');
-new CatImages('img/taz.jpg', 'taz', 'taz');
-new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers');
+
+
+new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz','', '', '', '');
+new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff', 'a', 'b', 'c', 'd');
+new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia', 'a', 'b', 'c', 'd');
+new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet', 'a', 'b', 'c', 'd');
+new CatImages('img/fritz.jpg', 'fritz', 'fritz', 'a', 'b', 'c', 'd');
+new CatImages('img/judy.jpg', 'judy', 'judy', 'a', 'b', 'c', 'd');
+new CatImages('img/poncho.jpg', 'poncho', 'poncho', 'a', 'b', 'c', 'd');
+new CatImages('img/romy.jpg', 'romy', 'romy', 'a', 'b', 'c', 'd');
+new CatImages('img/saffron.jpg', 'saffron', 'saffron', 'a', 'b', 'c', 'd');
+new CatImages('img/sasha.jpg', 'sasha', 'sasha', 'a', 'b', 'c', 'd');
+new CatImages('img/taz.jpg', 'taz', 'taz', 'a', 'b', 'c', 'd');
+new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers', 'a', 'b', 'c', 'd');
 
 
 // get index for 2 random images
@@ -49,6 +68,27 @@ function getRandomIndex(){
 
   return [index, indexTwo];
 }
+
+//get random sentences
+// function getRandomSentence(){
+//   var index = randomNumber(sentences.length);
+
+//   while(uniqueIndexArray.includes(index)){
+//     index = randomNumber(sentences.length);
+//   }
+//   uniqueIndexArray.push(index);
+//   if (uniqueIndexArray.length>9){
+//     uniqueIndexArray.shift();
+//   }
+//   for(var i = 0; i< uniqueIndexArray.length; i++){
+//     uniqueIndexArray[i].push(allCats[3]);
+//   }
+
+//   return index;
+// }
+// getRandomSentence();
+
+
 
 // helper function
 function randomNumber(max){
@@ -98,7 +138,7 @@ function restoreMatchedCatsFromStorage() {
       for (var j = 0; j < onePairOfMatchedCats.length; j++) {
         var oneMatchedCat = onePairOfMatchedCats[j];
         pairOfMatchedCatsArray.push(
-          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title)
+          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title, oneMatchedCat.a, oneMatchedCat.b, oneMatchedCat.c, oneMatchedCat.d)
         );
       }
       matchedCats.push(pairOfMatchedCatsArray);
@@ -164,3 +204,13 @@ document.getElementById('non-match-button').addEventListener('click', handleNonM
 //create an input box for the users to name the matches
 
 //render the named matches to the DOM
+
+
+// help function, sentences array
+
+
+// 'completely bored by talking about nothing all day.', 'likes to steal cat nip and enjoy it with .', 'Since  gave  a hat made from squirrel, they’re best friends.', ' and  will leave double the amount of hair wherever they go.', ' and  love to meet on weekends to grab sardine ice-cream.'
+// Judy is never happy until she finds something to be unhappy about; then, she is overjoyed and ___ feels the same way, that’s why they matched.
+// Judy and ___ like to climb on trees, and sometimes ___ falls. It makes Judy laugh.
+// Judy and ___ like to spot squirrels in the yard, but they’re actually too lazy to chase them.
+// 'completely bored by talking about nothing all day.', 'likes to steal cat nip and enjoy it with .', 'Since  gave  a hat made from squirrel, they’re best friends.', ' and  will leave double the amount of hair wherever they go.'
