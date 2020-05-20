@@ -20,7 +20,7 @@ function displayingCatMatches(){
     //create right image
     var rightImageEl = document.createElement('img');
     rightImageEl.setAttribute('src', pairOfMatchedCats[1].filePath);
-    rightImageEl.setAttribute('class', 'left-match-image');
+    rightImageEl.setAttribute('class', 'right-match-image');
     imageSectionEl.appendChild(rightImageEl);
     //append image section to parent
     matchSectionEl.appendChild(imageSectionEl);
