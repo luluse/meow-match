@@ -95,7 +95,33 @@ div.card {
   margin: 25px;
   width: 250px;
   height: 350px;
+  perspective: 1000px;
   transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card-front {
+  position: absolute;
+  /* bottom: 0px; */
+  background-color: cadetblue;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.card-back {
+  position: absolute;
+  /* bottom: 0px; */
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 2.0em;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgb(82, 21, 78);
+  transform: scale(-1, 1);
+  z-index: 1;
 }
 
 section#card-match img {
@@ -284,21 +310,35 @@ section.story-section {
   animation-fill-mode: forwards;
 }
 
-.left-card-flip {
+.left-card-flip-to-back {
   animation-name: flipLeftCard;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transform-style: preserve-3d;
 }
 
-.right-card-flip {
+.right-card-flip-to-back {
   animation-name: flipRightCard;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transform-style: preserve-3d;
 }
 
+.left-card-flip-to-front {
+  animation-name: flipLeftCard;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+.right-card-flip-to-front {
+  animation-name: flipRightCard;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+
 /* Keyframes */
+
 /* Presentation */
 @keyframes leftCardPresentation {
   0% {
