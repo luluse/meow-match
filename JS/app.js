@@ -4,8 +4,8 @@ var renderedCats = [];
 var matchedCatsKey = 'cat-matches';
 var matchedCats = [];
 // var totalRounds = [];
-var parentLeft = document.getElementById('left-card');
-var parentRight = document.getElementById('right-card');
+var parentLeft = document.getElementById('left-card-front');
+var parentRight = document.getElementById('right-card-front');
 var parentMatches = document.getElementById('matches-list');
 
 // buttons event listener functions
