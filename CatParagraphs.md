@@ -10,3 +10,43 @@ Poncho - Poncho Warren - Good afternoon, I'm Poncho.  I'm a nursery school teach
 Fritz - Fritz Suthernand - Hello, I'm fritz.  I work as a photographer in the fashion industry, but that was not my first love.  I originally got my start in the industry as a model, but I am extremely camera shy, so I decided to turn my focus behind the camera.  I'm waiting to meet the right person to be my muse. 
 Clawdia - Clawdia Jeripat - Hey! I'm clawdia, and I'm the life of the party!! I'm 2 years old.  My friends wonder where I get all of my energy, and well, I just love life.  I wake up every morning so excited and it lasts all day.  No coffee or tea for me, I don't even need it. Let's meet up and read a book, or a hundred. 
 Biscoff - Biscoff Rubino - Wowzers, I'm Biscoff.  I'm 13.5 years old, and here to for adventure.  I spent the majority of my life hiking and working as a guide in the alps, and now I've decided its time to come down from the mountain and live out the rest of my days.  Let's meet for coffee during the day.  
+
+
+Biscoff sentences - 
+Biscoff spent the afternoon making a great cup of coffee and enjoying a talk with ____. 
+Biscoff decided to go back up the mountain and took three black diamond ski runs, ____ called it quits. 
+Biscoff went parachuting and was never seen again, ___ was so confused. 
+Biscoff finally decided to settle down and had a happy home life with ___. 
+
+Clawdia sentences - 
+Clawdia got too wound up on coffee and fell asleep, ____ was upset. 
+Clawdia went hosted a large party and invited all of their friends, and ___ came along for the fun. 
+Clawdia got lost in a book and never showed up for their playdate ____ kept calling and calling, but never got through. 
+Clawdia decided to ____ on a fun safari meeting all sorts of different animals. 
+
+Frtiz sentences -
+Fritz went over to __'s house with a cake and the two ate the entire thing. 
+____ and Fritz walked over to the store to purchase a large bottle of wine and sardines, their idea of the perfect date. 
+Fritz thought to bring over the tuna that their owner gave them, ___ was so excited. 
+Fritz had to cancel their playdate again, work, work, work, and the fashion industry never sleeps, ____ was not happy. 
+
+Poncho sentences - 
+Poncho accidentially covered ___ in paint, forgetting they were carrying it in their bag. 
+Poncho could not fight the urge to give ____ treats, and asking them if they needed a nap. 
+Poncho showed up for their playdate with bumps and bruises all over, but that did not stop the ____ and Poncho having fun on their bike ride. 
+Poncho ghosted ____, after weeks of texting back and forth. 
+
+Saffron sentences - 
+Saffron could not stop talking about fish during the date ____ was tired of it.  
+Saffron had a really tough time when giving up their fish habit, and ____ decided that this really wasn't their thing anymore. 
+Saffron was surprised and was gifted a lockin by ___ at the aquarium, much to their delight. 
+Saffron flew to hawaii to see what they thought was the biggest fish with ___, but turned out to be whales instead. 
+
+Sasha sentences - 
+Sasha just couldn't make it to their playdate, but sent a surrogate in their place, ____ had to understand. 
+Sasha quit their full time job and with ____  decided to travel across the country in their biodiesel Winnebago. 
+Sasha booked a trip to the swiss alps but _____ bailed on them last minute. 
+Sasha found the biggest ball of yarn, ____ was so excited they played for hours. 
+
+Berlioz sentences -  
+Berlioz completely bored ____ by talking about nothing all day. 
