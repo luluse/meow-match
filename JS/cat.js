@@ -1,11 +1,28 @@
 'use strict';
 
+
+var uniqueIndexArray = [];
+var sentences = [`${pairOfMatchedCats[0].title} got too wound up on coffee and fell asleep, ${pairOfMatchedCats[1].title} was upset.`,
+  `${pairOfMatchedCats[0].title} went hosted a large party and invited all of their friends, and ${pairOfMatchedCats[1].title} came along for the fun.`,
+  `${pairOfMatchedCats[0].title} got lost in a book and never showed up for their playdate ${pairOfMatchedCats[1].title} kept calling and calling, but never got through.`,
+  `${pairOfMatchedCats[0].title} decided to ${pairOfMatchedCats[1].title} on a fun safari meeting all sorts of different animals.`];
+
+
 // create my constructor function to hold my cats instances
-function CatImages(url, alt, title){
+function CatImages(url, alt, title, a, uniqueIndexArray){
   this.filePath = url;
   this.alt = alt;
   this.title = title;
+  this.a = a;
+  this.b = uniqueIndexArray;
+  // this.c = c;
+  // this.d = d;
+
+
+
   allCats.push(this);
+
+
 }
 CatImages.prototype.render = function(rootElement){
   var imageElement = document.createElement('img');
@@ -17,6 +34,7 @@ CatImages.prototype.render = function(rootElement){
 
   rootElement.appendChild(imageElement);
 };
+
 
 new CatImages('catImages/berlioz.png', 'berlioz', 'berlioz');
 new CatImages('catImages/biscoff.png', 'biscoff', 'biscoff');
@@ -30,6 +48,7 @@ new CatImages('catImages/saffron.png', 'saffron', 'saffron');
 new CatImages('catImages/sasha.png', 'sasha', 'sasha');
 new CatImages('catImages/taz.png', 'taz', 'taz');
 new CatImages('catImages/twizzers.png', 'twizzers', 'twizzers');
+
 
 
 // get index for 2 random images
@@ -49,6 +68,27 @@ function getRandomIndex(){
 
   return [index, indexTwo];
 }
+
+//get random sentences
+// function getRandomSentence(){
+//   var index = randomNumber(sentences.length);
+
+//   while(uniqueIndexArray.includes(index)){
+//     index = randomNumber(sentences.length);
+//   }
+//   uniqueIndexArray.push(index);
+//   if (uniqueIndexArray.length>9){
+//     uniqueIndexArray.shift();
+//   }
+//   for(var i = 0; i< uniqueIndexArray.length; i++){
+//     uniqueIndexArray[i].push(allCats[3]);
+//   }
+
+//   return index;
+// }
+// getRandomSentence();
+
+
 
 // helper function
 function randomNumber(max){
@@ -98,7 +138,7 @@ function restoreMatchedCatsFromStorage() {
       for (var j = 0; j < onePairOfMatchedCats.length; j++) {
         var oneMatchedCat = onePairOfMatchedCats[j];
         pairOfMatchedCatsArray.push(
-          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title)
+          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title, oneMatchedCat.a, oneMatchedCat.b, oneMatchedCat.c, oneMatchedCat.d)
         );
       }
       matchedCats.push(pairOfMatchedCatsArray);
@@ -189,6 +229,7 @@ document.getElementById('non-match-button').addEventListener('click', handleNonM
 //   }
 
 // }
+
 
 
 

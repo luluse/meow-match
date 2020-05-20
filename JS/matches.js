@@ -1,3 +1,4 @@
+
 function displayingCatMatches(){
   while (parentMatches.firstChild) {
     parentMatches.removeChild(parentMatches.firstChild);
@@ -24,13 +25,36 @@ function displayingCatMatches(){
     imageSectionEl.appendChild(rightImageEl);
     //append image section to parent
     matchSectionEl.appendChild(imageSectionEl);
+  
     //create story section
     var storySectionEl = document.createElement('section');
     storySectionEl.setAttribute('class', 'story-section');
-    storySectionEl.innerText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+    storySectionEl.innerText =`${pairOfMatchedCats[0].title} ${pairOfMatchedCats[0].a} ${pairOfMatchedCats[0].b} ${pairOfMatchedCats[0].c} ${pairOfMatchedCats[0].d} ${pairOfMatchedCats[1].title}`;
     matchSectionEl.appendChild(storySectionEl);
   }
 }
 
+
 restoreMatchedCatsFromStorage();
 displayingCatMatches();
+
+
+
+//   var sentences = [`${pairOfMatchedCats[0].title} got too wound up on coffee and fell asleep, ${pairOfMatchedCats[1].title} was upset.`,
+//     `${pairOfMatchedCats[0].title} went hosted a large party and invited all of their friends, and ${pairOfMatchedCats[1].title} came along for the fun.`,
+//     `${pairOfMatchedCats[0].title} got lost in a book and never showed up for their playdate ${pairOfMatchedCats[1].title} kept calling and calling, but never got through.`,
+//     `${pairOfMatchedCats[0].title} decided to ${pairOfMatchedCats[1].title} on a fun safari meeting all sorts of different animals.`];
+// //get random sentences
+// function getRandomSentence(){
+//   var index = randomNumber(sentences.length);
+  
+//   while(uniqueIndexArray.includes(index)){
+//     index = randomNumber(sentences.length);
+//   }
+//   uniqueIndexArray.push(index);
+//   if (uniqueIndexArray.length>9){
+//     uniqueIndexArray.shift();
+//   }
+  
+//   return index;
+// }
