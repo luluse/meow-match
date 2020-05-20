@@ -113,6 +113,11 @@ button {
   height: 50px;
 }
 
+button:hover {
+  background-color: rgb(218, 224, 242);
+  color: rgb(17, 17, 68);
+}
+
 footer>nav {
   align-items: center;
   border: 4px solid cadetblue;
@@ -120,7 +125,8 @@ footer>nav {
   display: flex;
   justify-content: center;
   margin: auto;
-  max-width: 50%;
+  max-width: 75%;
+  padding: 0px 5px;
 }
 
 footer>nav a {
@@ -142,10 +148,14 @@ footer h3 {
   text-align: center;
 }
 
-section.bio img {
+h1#about-us-header {
+  text-align: center;
+}
+
+section.bio img:not(.icon-image) {
   float: left;
   max-width: 250px;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 
 section.bio {
@@ -165,8 +175,35 @@ section.bio h3 {
 }
 
 section.bio p {
-  font-size: 1.2em;
+  font-size: 1.25em;
   margin-bottom: 10px;
+}
+
+ul.bio-links {
+  margin-top: 10px;
+}
+
+ul.bio-links li {
+  display: inline;
+}
+
+ul.bio-links li:not(:first-child) {
+  margin-left: 10px;
+}
+
+section.bio a {
+  text-decoration: none;
+}
+
+span.social-link-text {
+  font-size: 1.2em;
+  margin-left: 5px;
+  position: relative;
+  bottom: 11px;
+}
+
+section.bio img.icon-image {
+  width: 35px;
 }
 
 footer {
