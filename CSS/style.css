@@ -82,10 +82,6 @@ section#intro p {
   text-align: right;
 }
 
-div#left-card-back {
-  background-color: rgb(82, 21, 78);
-}
-
 section#card-match {
   align-items: center;
   display: flex;
