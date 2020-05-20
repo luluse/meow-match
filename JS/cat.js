@@ -36,19 +36,19 @@ CatImages.prototype.render = function(rootElement){
 };
 
 
+new CatImages('catImages/berlioz.png', 'berlioz', 'berlioz');
+new CatImages('catImages/biscoff.png', 'biscoff', 'biscoff');
+new CatImages('catImages/clawdia.png', 'clawdia', 'clawdia');
+new CatImages('catImages/crumpet.png', 'crumpet', 'crumpet');
+new CatImages('catImages/fritz.png', 'fritz', 'fritz');
+new CatImages('catImages/judy.png', 'judy', 'judy');
+new CatImages('catImages/poncho.png', 'poncho', 'poncho');
+new CatImages('catImages/romy.png', 'romy', 'romy');
+new CatImages('catImages/saffron.png', 'saffron', 'saffron');
+new CatImages('catImages/sasha.png', 'sasha', 'sasha');
+new CatImages('catImages/taz.png', 'taz', 'taz');
+new CatImages('catImages/twizzers.png', 'twizzers', 'twizzers');
 
-new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz','', '', '', '');
-new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff', 'a', 'b', 'c', 'd');
-new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia', 'a', 'b', 'c', 'd');
-new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet', 'a', 'b', 'c', 'd');
-new CatImages('img/fritz.jpg', 'fritz', 'fritz', 'a', 'b', 'c', 'd');
-new CatImages('img/judy.jpg', 'judy', 'judy', 'a', 'b', 'c', 'd');
-new CatImages('img/poncho.jpg', 'poncho', 'poncho', 'a', 'b', 'c', 'd');
-new CatImages('img/romy.jpg', 'romy', 'romy', 'a', 'b', 'c', 'd');
-new CatImages('img/saffron.jpg', 'saffron', 'saffron', 'a', 'b', 'c', 'd');
-new CatImages('img/sasha.jpg', 'sasha', 'sasha', 'a', 'b', 'c', 'd');
-new CatImages('img/taz.jpg', 'taz', 'taz', 'a', 'b', 'c', 'd');
-new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers', 'a', 'b', 'c', 'd');
 
 
 // get index for 2 random images
@@ -146,6 +146,44 @@ function restoreMatchedCatsFromStorage() {
   }
 }
 
+
+
+function displayingCatMatches(){
+  var matchesToMatchesPage = document.createElement('img');
+  matchesToMatchesPage.src = allCats;
+  parentMatches.appendChild(matchesToMatchesPage);
+}
+
+displayingCatMatches();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // get matches from local storage to render on matches.html page
 // function
 // var renderMatches = localStorage.getItem('catsThatMatch');
@@ -192,25 +230,7 @@ document.getElementById('non-match-button').addEventListener('click', handleNonM
 
 // }
 
-//render to the DOM
-// function displayMatchesToDom(){
-// }
 
 
-// catsOutOfLocalStorage();
-
-//render the bios to the matches in the DOM
-
-//create an input box for the users to name the matches
-
-//render the named matches to the DOM
 
 
-// help function, sentences array
-
-
-// 'completely bored by talking about nothing all day.', 'likes to steal cat nip and enjoy it with .', 'Since  gave  a hat made from squirrel, they’re best friends.', ' and  will leave double the amount of hair wherever they go.', ' and  love to meet on weekends to grab sardine ice-cream.'
-// Judy is never happy until she finds something to be unhappy about; then, she is overjoyed and ___ feels the same way, that’s why they matched.
-// Judy and ___ like to climb on trees, and sometimes ___ falls. It makes Judy laugh.
-// Judy and ___ like to spot squirrels in the yard, but they’re actually too lazy to chase them.
-// 'completely bored by talking about nothing all day.', 'likes to steal cat nip and enjoy it with .', 'Since  gave  a hat made from squirrel, they’re best friends.', ' and  will leave double the amount of hair wherever they go.'
