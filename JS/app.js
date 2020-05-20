@@ -1,5 +1,14 @@
 'use strict';
 
+var allCats = [];
+var renderedCats = [];
+var matchedCatsKey = 'cat-matches';
+var matchedCats = [];
+// var totalRounds = [];
+var parentLeft = document.getElementById('left-card');
+var parentRight = document.getElementById('right-card');
+var parentMatches = document.getElementById('matches-list');
+
 // buttons event listener functions
 function handleMatchButton(event){
   var clickMatch = event.target.button;
