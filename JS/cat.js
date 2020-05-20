@@ -1,15 +1,5 @@
 'use strict';
 
-var allCats = [];
-var renderedCats = [];
-var matchedCatsKey = 'cat-matches';
-var matchedCats = [];
-// var totalRounds = [];
-var parentLeft = document.getElementById('left-card');
-var parentRight = document.getElementById('right-card');
-var parentMatches = document.getElementById('matches-list');
-
-
 // create my constructor function to hold my cats instances
 function CatImages(url, alt, title){
   this.filePath = url;
