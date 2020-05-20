@@ -50,17 +50,13 @@ nav.horizontal-nav a:last-child {
 }
 
 h1 {
-  background-color: cadetblue;
   font-size: 2.6em;
   padding: 10px;
   text-align: center;
 }
 
-section#matches-title h1 {
-  background-color: white;
-  font-size: 2.6em;
-  padding: 10px;
-  text-align: center;
+h1#about-us-header {
+  text-align: left;
 }
 
 section#matches-list {
@@ -144,6 +140,37 @@ footer h3 {
   font-size: 1.2em;
   margin: 10px 0px;
   text-align: center;
+}
+
+section.bio img {
+  float: left;
+  max-width: 250px;
+  padding: 10px;
+}
+
+section.bio {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 75%;
+  padding: 5px;
+  clear: left;
+  overflow: hidden;
+}
+
+section.bio h3 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+section.bio p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+footer {
+  clear: left;
 }
 
 /* Animations */
