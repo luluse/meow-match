@@ -28,18 +28,18 @@ CatImages.prototype.render = function(rootElement){
   rootElement.appendChild(imageElement);
 };
 
-new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz');
-new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff');
-new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia');
-new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet');
-new CatImages('img/fritz.jpg', 'fritz', 'fritz');
-new CatImages('img/judy.jpg', 'judy', 'judy');
-new CatImages('img/poncho.jpg', 'poncho', 'poncho');
-new CatImages('img/romy.jpg', 'romy', 'romy');
-new CatImages('img/saffron.jpg', 'saffron', 'saffron');
-new CatImages('img/sasha.jpg', 'sasha', 'sasha');
-new CatImages('img/taz.jpg', 'taz', 'taz');
-new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers');
+new CatImages('catImages/berlioz.png', 'berlioz', 'berlioz');
+new CatImages('catImages/biscoff.png', 'biscoff', 'biscoff');
+new CatImages('catImages/clawdia.png', 'clawdia', 'clawdia');
+new CatImages('catImages/crumpet.png', 'crumpet', 'crumpet');
+new CatImages('catImages/fritz.png', 'fritz', 'fritz');
+new CatImages('catImages/judy.png', 'judy', 'judy');
+new CatImages('catImages/poncho.png', 'poncho', 'poncho');
+new CatImages('catImages/romy.png', 'romy', 'romy');
+new CatImages('catImages/saffron.png', 'saffron', 'saffron');
+new CatImages('catImages/sasha.png', 'sasha', 'sasha');
+new CatImages('catImages/taz.png', 'taz', 'taz');
+new CatImages('catImages/twizzers.png', 'twizzers', 'twizzers');
 
 
 // get index for 2 random images
@@ -116,6 +116,44 @@ function restoreMatchedCatsFromStorage() {
   }
 }
 
+
+
+function displayingCatMatches(){
+  var matchesToMatchesPage = document.createElement('img');
+  matchesToMatchesPage.src = allCats;
+  parentMatches.appendChild(matchesToMatchesPage);
+}
+
+displayingCatMatches();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // get matches from local storage to render on matches.html page
 // function
 // var renderMatches = localStorage.getItem('catsThatMatch');
@@ -162,15 +200,6 @@ document.getElementById('non-match-button').addEventListener('click', handleNonM
 
 // }
 
-//render to the DOM
-// function displayMatchesToDom(){
-// }
 
 
-// catsOutOfLocalStorage();
 
-//render the bios to the matches in the DOM
-
-//create an input box for the users to name the matches
-
-//render the named matches to the DOM
