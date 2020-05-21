@@ -21,7 +21,7 @@ and housebound cats from among thousands* of local cats, and then find out the a
 
 #### Tuesday
 - Lots of CSS styling, animations, transitions
-- Add event listeners to match and non-match buttons
+- Add event listener to match and non-match buttons
 - send matches to local storage
 
 #### Wednesday
@@ -40,19 +40,19 @@ and housebound cats from among thousands* of local cats, and then find out the a
 
 ## Technical obstacles
 
-- Procedure to assemble stories elements was a challenge. We had to come up with an approach and refactored lots of code to avoid conflicts on JS files. Circular code references was an issue.
-- The local storage part: how to store match info with stories so the matches page can retrieve it was a challenge.
-- css animations was a challenge to make them work without overlapping other animations.
+- Procedure to assemble stories elements was a challenge. We had circular references issues in our code. We had to come up with an approach and refactored lots of code to avoid conflicts on JS files. 
+- The local storage part was challenging. How to store matches info with stories so the matches page can retrieve them.
+- CSS animations were challenging to make them work without overlapping other animations.
 
 
 ## Features we're proud of
 
 - Rendering random stories adventures based on the match
-- CSS animation
+- CSS animations
 - keep your previous matches on matches page and read about the cats adventures anytime you want.
 
-## What we learned during this project and we're proud about
-- The learning based approch we had on this project. We were able to learn from each others.
+## What we learned during this project and we're proud of
+- We're proud of the learning based approch we had on this project. Chris and Lulu took on JS, were they're the least confident and Paul took on CSS animations where he is the least confident. We were able to learn from each others and strengthen our skills.
 
 
 ## User stories

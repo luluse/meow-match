@@ -1,11 +1,14 @@
 'use strict';
+
+//array to keep track of which cats are currently rendered in the match cards
 var renderedCats = [];
-var matchedCats = [];
+//array to old all the MatchedCats objects
 var allMatchedCats = [];
+//array to hold all the cats currently available for matching
 var allCats = [];
+//key used for saving matched cat data to localStorage
 var matchedCatsKey = 'cat-matches';
 
-// var totalRounds = [];
 var leftCardParent = document.getElementById('left-card');
 var rightCardParent = document.getElementById('right-card');
 

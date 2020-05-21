@@ -48,7 +48,8 @@ new CatImages('catImages/crumpet.png', 'crumpet', 'crumpet',
   ]
 );
 
-new CatImages('catImages/fritz.png', 'fritz', 'fritz','Hello, I\'m fritz.  I work as a photographer in the fashion industry, but that was not my first love.  I originally got my start in the industry as a model, but I am extremely camera shy, so I decided to turn my focus behind the camera.  I\'m waiting to meet the right person to be my muse.',
+new CatImages('catImages/fritz.png', 'fritz', 'fritz',
+  'Hello, I\'m fritz.  I work as a photographer in the fashion industry, but that was not my first love.  I originally got my start in the industry as a model, but I am extremely camera shy, so I decided to turn my focus behind the camera.  I\'m waiting to meet the right person to be my muse.',
   [
     '  When Fritz and ____ hang out, they post stories on IG all day long and no one watches them because it’s annoying ',
     '  Fritz and ____ want to see if they can flush the toilet even thought they don’t have opposable thumbs',
@@ -59,7 +60,8 @@ new CatImages('catImages/fritz.png', 'fritz', 'fritz','Hello, I\'m fritz.  I wor
   ]
 );
 
-new CatImages('catImages/judy.png', 'judy', 'judy', 'Hello, I\'m Judy.  I\'m 4.5 years old and originally from the Carribean. I grew tired of the heat and humidity, so I decided to give the Northwest a try.  I love playing hide and seek, but really prefer to hide.  I\'m currently working as a stagehand and have a passion for shakespeare.',
+new CatImages('catImages/judy.png', 'judy', 'judy',
+  'Hello, I\'m Judy.  I\'m 4.5 years old and originally from the Carribean. I grew tired of the heat and humidity, so I decided to give the Northwest a try.  I love playing hide and seek, but really prefer to hide.  I\'m currently working as a stagehand and have a passion for shakespeare.',
   [
     ' Judy and ____ love to meet on weekends to grab sardine ice-cream',
     ' Judy is never happy until she finds something to be unhappy about, then, she is overjoyed and ____ feels the same way, that’s why they matched',
@@ -69,7 +71,8 @@ new CatImages('catImages/judy.png', 'judy', 'judy', 'Hello, I\'m Judy.  I\'m 4.5
   ]
 );
 
-new CatImages('catImages/poncho.png', 'poncho', 'poncho','Good afternoon, I\'m Poncho.  I\'m a nursery school teacher and love all of my students.  In my off time, I compete as a rollercat and travel across the country during my time off in the summer months.  I\'m looking for someone who can keep up with my fast past lifestyle.',
+new CatImages('catImages/poncho.png', 'poncho', 'poncho',
+  'Good afternoon, I\'m Poncho.  I\'m a nursery school teacher and love all of my students.  In my off time, I compete as a rollercat and travel across the country during my time off in the summer months.  I\'m looking for someone who can keep up with my fast past lifestyle.',
   [
     '  Poncho can finally see ____ after his full body summer kitty haircut',
     '  Poncho and ____ promised each other the next day that they would never eat THAT much cat nip in one night ever again',
@@ -83,7 +86,8 @@ new CatImages('catImages/poncho.png', 'poncho', 'poncho','Good afternoon, I\'m P
 
 );
 
-new CatImages('catImages/romy.png', 'romy', 'romy', 'Oi, I\'m Romy.  I\'m 8.25 years old, but feel like I\'m only 1.  I have a thirst for life, and was previously a world class boxer, but gave it all up to pursue my true love of fishing.  Most weekends I\'m out on my boat or at the piers, and during the week, I\'m tending bar at the hottest catnip bar in town.',
+new CatImages('catImages/romy.png', 'romy', 'romy',
+  'Oi, I\'m Romy.  I\'m 8.25 years old, but feel like I\'m only 1.  I have a thirst for life, and was previously a world class boxer, but gave it all up to pursue my true love of fishing.  Most weekends I\'m out on my boat or at the piers, and during the week, I\'m tending bar at the hottest catnip bar in town.',
   [
     '  Romy accidentally coughed up a hairball on ____ on their first date',
     '  Romy and ____ like to go to the aquarium  to  freak out the squids in their tank',
@@ -147,11 +151,10 @@ new CatImages('catImages/twizzers.png', 'twizzers', 'twizzers', 'Hey!  I\'m twiz
 );
 
 //event listener for match and non-match buttons
-document.getElementById('match-button').addEventListener(
-  'click', handleMatchButton);
-document.getElementById('non-match-button').addEventListener(
-  'click', handleNonMatchButton);
+document.getElementById('match-button').addEventListener('click', handleMatchButton);
+document.getElementById('non-match-button').addEventListener('click', handleNonMatchButton);
 
+//event listeners for clicking on the cards to flip
 document.getElementById('left-card').addEventListener('click', handleLeftCardClick);
 document.getElementById('right-card').addEventListener('click', handleRightCardClick);
 
