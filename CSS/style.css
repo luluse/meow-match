@@ -170,7 +170,7 @@ footer h3 {
   color: grey;
 }
   
-#welcomen{
+#welcome{
   font-size: 5em;
   font-family: 'Oswald', sans-serif;  
 }
@@ -219,10 +219,9 @@ a {
   opacity:30%;
   transition:3s;
 }
-
 #paulpic{
   position: relative;
-  bottom: 20px;
+  bottom: 30px;
 }
 
 #paulpic:hover{
@@ -296,11 +295,15 @@ section.bio img:not(.icon-image) {
   transition: 5s;
 
 }
-#bottompaul{
-  position: relative;
-  right: 270px;
+/* #bottompaul{
+  height: 333px;
+  left: 120px;
   z-index: -1;
-}
+  position: absolute; 
+  top: 755px;
+  width: 350px;
+  
+} */
 #bio-plulu{
   line-height: 30px;
   color:  rgb(231, 231, 231);
@@ -310,29 +313,28 @@ section.bio img:not(.icon-image) {
   color:  rgb(54, 54, 54);
   transition: 5s;
 }
-#bottomlulu{
-  position: relative;
-  right:270px;
-  top:0px;
+/* #bottomlulu{
+  position: absolute;
+  left:120px;
   z-index:-1;
   height: 250px;
-}
+} */
 #bio-pchris{
-  line-height: 34px;
+  line-height: 32px;
   color:  rgb(231, 231, 231);
 }
 #bio-pchris:hover{
-  line-height: 34px;
+  line-height: 32px;
   color:  rgb(54, 54, 54);
   transition: 5s;
 }
-#bottomchris{
-  position: relative;
-  height:250px;
-  right:270px;
-  bottom:30px;
+/* #bottomchris{
+  position: absolute;
   z-index: -1;
-}
+  height:250px;
+  left: 120px;
+  top: 1794px;
+} */
 #bio-p:hover{
   font-family: 'Nunito', sans-serif;
   color:black;
@@ -365,13 +367,17 @@ ul.bio-links {
   margin-top: 10px;
 }
 
+
 ul.bio-links li {
   display: inline;
 }
 
+
 ul.bio-links li:not(:first-child) {
   margin-left: 10px;
+  
 }
+
 
 section.bio a {
   text-decoration: none;
