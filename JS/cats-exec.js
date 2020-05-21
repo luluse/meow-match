@@ -1,4 +1,5 @@
 //executables - cats.js
+
 new CatImages('catImages/berlioz.png', 'berlioz', 'berlioz',
   'Hi Hi.  I\'m Berlioz, but you can call me Berlie.  I\'m 4 years old, and love a good book.  Although I work in a library, don\'t let my quiet dimeanor fool you.  In my spare time I work as an auuctioneer.  Fun fact, I sold the original A team van to Mr T. ',
   [
