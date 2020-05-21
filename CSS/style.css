@@ -255,11 +255,32 @@ section.bio img:not(.icon-image) {
   font-family: 'Nunito', sans-serif;
   text-align: right;
   color: rgb(54, 54, 54);
-  text-shadow: 1px 1px grey;
-  font-style: italic;
+  
+ 
   padding-right: 10px;
 }
- 
+#meowmatch{
+  color: cadetblue;
+  font-size: 1.45em;
+  
+}
+ #paul{
+   color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+   }
+
+#lulu {
+  color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+}
+#chris{
+  color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+}
+
 #bio-p{
   font-family: 'Nunito', sans-serif;
   color: black
