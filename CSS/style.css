@@ -1,13 +1,17 @@
 header>section {
   background-color: cadetblue;
+  height: 250px;
   width: 100%;
-  height: 200px;
 }
 
 section#logo {
   float: left;
-  margin-top: 20px;
+  margin-top: 75px;
+  
+  
   overflow: auto;
+  max-width:100%;
+  height: auto;
 }
 
 section#logo img {
@@ -27,6 +31,24 @@ nav.horizontal-nav {
 nav.horizontal-nav a:hover {
   background-color: rgb(218, 224, 242);
   color: rgb(17, 17, 68);
+}
+#welcome{
+  font-size: 5em;
+  font-family: 'Oswald', sans-serif;
+}
+
+#welcomeParagraph{
+  color: rgb(73, 72, 72);
+  font-size: 1.5em;
+  font-family:'Oswald', sans-serif;
+  line-height: 35px;
+
+}
+#disclaimer{
+  font-family:'Oswald', sans-serif;
+  font-size: 1em;
+  line-height: 45px;
+  color: rgb(80, 80, 80);
 }
 
 nav.horizontal-nav a {
@@ -56,7 +78,13 @@ h1 {
 }
 
 h1#about-us-header {
+  color: rgb(54, 54, 54);
+  font-family: 'Oswald', sans-serif;
+  font-size: 8em;
+  line-height: 120px;
   text-align: left;
+  text-align: center;
+  text-shadow: 1.5px 1.5px cadetblue; 
 }
 
 section#matches-list {
@@ -72,13 +100,11 @@ section#intro {
   text-align: center;
 }
 
-section#intro h2 {
-  font-size: 1.3em;
+section#intro h2 { 
   padding: 5px;
 }
 
 section#intro p {
-  font-size: 0.6em;
   text-align: right;
 }
 
@@ -92,35 +118,35 @@ section#card-match {
 div.card {
   border: 4px solid cadetblue;
   border-radius: 10px;
-  margin: 25px;
-  width: 250px;
   height: 350px;
+  margin: 25px;
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: transform 1s;
+  width: 250px;
 }
 
 .card-front {
-  position: absolute;
+  backface-visibility: hidden;
   /* bottom: 0px; */
   background-color: cadetblue;
-  width: 100%;
   height: 100%;
-  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
   z-index: 2;
 }
 
 .card-back {
-  position: absolute;
-  /* bottom: 0px; */
-  width: 100%;
-  height: 100%;
   color: white;
-  font-size: 2.0em;
-  text-align: center;
-  vertical-align: middle;
   background-color: rgb(82, 21, 78);
+  font-size: 2.0em;
+  /* bottom: 0px; */
+  height: 100%;
+  text-align: center;
+  position: absolute;
   transform: scale(-1, 1);
+  width: 100%;
+  vertical-align: middle;
   z-index: 1;
 }
 
@@ -135,9 +161,9 @@ button {
   color: rgb(82, 21, 78);
   display: block;
   font-size: 1.2em;
+  height: 50px;
   margin-top: 20px;
   width: 125px;
-  height: 50px;
 }
 
 button:hover {
@@ -167,24 +193,90 @@ footer>nav img {
 
 span#footer-nav-spacer {
   width: 175px;
+  
 }
 
 footer h3 {
   font-size: 1.2em;
-  margin: 10px 0px;
+  padding-top: 30px;
   text-align: center;
+  font-family: 'Nunito', sans-serif;
+  color: grey;
+  
+
+}
+a {
+  font-family:'Nunito', sans-serif;
+  color: grey;
 }
 
-h1#about-us-header {
-  text-align: center;
+#chrispic{
+  position: relative;
+  bottom: 30px;
 }
+
+#chrispic:hover{
+  opacity:30%;
+  transition:3s;
+}
+
+#paulpic{
+  position: relative;
+  bottom: 20px;
+}
+
+#paulpic:hover{
+  opacity:30%;
+  transition:3s;
+}
+
+#lulupic:hover{
+  opacity: 30%;
+  transition:3s;
+}
+
+
+body{
+  background-color: rgb(231, 231, 231);
+}
+
+
+
 
 section.bio img:not(.icon-image) {
   float: left;
   max-width: 250px;
   padding: 0px 10px 10px 10px;
 }
+#names{
+  font-size:3.5em;
+  font-family: 'Nunito', sans-serif;
+  text-align: right;
+  color: rgb(54, 54, 54);
+  text-shadow: 1px 1px grey;
+}
+ 
+#bio-p{
+  font-family: 'Nunito', sans-serif;
+  color: black
+}
 
+#bio-ppaul{
+  position:relative;
+  line-height: 32px;
+}
+#bio-plulu{
+  line-height: 30px;
+}
+#bio-pchris{
+  line-height: 34px;
+}
+#bio-p:hover{
+  font-family: 'Nunito', sans-serif;
+  color:black;
+  transition: 1.5s;
+
+}
 section.bio {
   border: 4px solid cadetblue;
   border-radius: 10px;
@@ -204,6 +296,7 @@ section.bio h3 {
 section.bio p {
   font-size: 1.25em;
   margin-bottom: 10px;
+  font-family: 'Nunito', sans-serif;
 }
 
 ul.bio-links {
