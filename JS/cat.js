@@ -112,7 +112,8 @@ MatchedCats.prototype.storyBuilder = function() {
 
 MatchedCats.prototype.storyMatching = function(storiesArray, storyPartner) {
   for (var i = 0; i < storiesArray.length; i++) {
-    storiesArray[i] = storiesArray[i].replace('____', storyPartner.title);
+    // storiesArray[i] = storiesArray[i].replace('____', storyPartner.title);
+    storiesArray[i] = storiesArray[i].replace(/____/g, storyPartner.title);
   }
 };
 
@@ -229,7 +230,6 @@ function displayingCatMatches(){
 // buttons event listener functions
 function handleMatchButton(event){
   var newMatchedCats = new MatchedCats(renderedCats[0], renderedCats[1]);
-  matchedCats.push(renderedCats);
   catsSendtoLocalStorage();
 
   // cloneAndReplaceNodeWithAnimation(leftCardParent, leftCardMatchCSSAnim);
@@ -289,5 +289,5 @@ function handleRightCardClick(event) {
   cardContianer.parentNode.replaceChild(cloneCardContainer, cardContianer);
   //reset refs after node clone
   rightCardParent = document.getElementById('right-card');
-  leftImageFrontParent = document.getElementById('right-card-front');
+  rightImageFrontParent = document.getElementById('right-card-front');
 }
