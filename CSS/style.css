@@ -115,16 +115,7 @@ section#card-match {
   vertical-align: middle;  
 }
 
-div.card {
-  border: 4px solid cadetblue;
-  border-radius: 10px;
-  height: 350px;
-  margin: 25px;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  width: 250px;
-}
+
 
 .card-front {
   backface-visibility: hidden;
@@ -136,18 +127,13 @@ div.card {
   z-index: 2;
 }
 
-.card-back {
+
+
+.cat-bio {
   color: white;
-  background-color: rgb(82, 21, 78);
-  font-size: 2.0em;
-  /* bottom: 0px; */
-  height: 100%;
-  text-align: center;
-  position: absolute;
-  transform: scale(-1, 1);
-  width: 100%;
-  vertical-align: middle;
-  z-index: 1;
+  font-size: 1.35em;
+  text-align: left;
+  padding: 10px;
 }
 
 section#card-match img {
