@@ -1,5 +1,6 @@
-
+//renders the cat matches to the DOM
 function displayingCatMatches(){
+  //clear the parent element/node of children
   while (parentMatches.firstChild) {
     parentMatches.removeChild(parentMatches.firstChild);
   }
@@ -7,6 +8,7 @@ function displayingCatMatches(){
     var oneCatMatch = allMatchedCats[i];
     //create match container
     var matchSectionEl = document.createElement('section');
+    //set a class for each matchSectionEl so we can identify the cats
     matchSectionEl.classList.add(
       'match-section',
       `${oneCatMatch.matchedCatOne.title}-${oneCatMatch.matchedCatTwo.title}`
@@ -38,6 +40,8 @@ function displayingCatMatches(){
   }
 }
 
+//if cat match object already has a matchTitle, renders it,
+//otherwise renders a form for capturing a matchTitle from the user
 function createFormOrTitle(catMatch, parentEl) {
   if (!catMatch.matchTitle || catMatch.matchTitle === '') {
     var formEl = document.createElement('form');
@@ -62,6 +66,7 @@ function createFormOrTitle(catMatch, parentEl) {
   }
 }
 
+//function triggered when Submit button is hit on the cat match title form
 function titleCatchMatch(event) {
   var catMatchSectionForm = event.target;
   //match event.target, which is a form, to the appropriate cat from its parent node
@@ -76,6 +81,7 @@ function titleCatchMatch(event) {
   updateMatchInStorageWithTitle(catMatchPair, matchTitle);
 }
 
+//updates allMatchedCats with new matchTitle, then writes it to localStorage
 function updateMatchInStorageWithTitle(catMatchPair, matchTitle) {
   var titledCatOne = catMatchPair.split('-')[0];
   var titledCatTwo = catMatchPair.split('-')[1];

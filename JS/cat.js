@@ -1,14 +1,24 @@
 'use strict';
 
 //CSS animation HTML classes
+//Card presentation animations
 var leftPresentationCSSAnim = 'left-presentation';
 var rightPresentationCSSAnim = 'right-presentation';
+
+//Card match and non-match animations
 var leftCardMatchCSSAnim = 'left-card-match';
 var rightCardMatchCSSAnim = 'right-card-match';
 var leftCardNonMatchCSSAnim = 'left-card-non-match';
 var rightCardNonMatchCSSAnim = 'right-card-non-match';
 
-// create my constructor function to hold my cats instances
+//Card flip animations
+var leftCardFlipToBackCSSAnim = 'left-card-flip-to-back';
+var rightCardFlipToBackCSSAnim = 'right-card-flip-to-back';
+var leftCardFlipToFrontCSSAnim = 'left-card-flip-to-front';
+var rightCardFlipToFrontCSSAnim = 'right-card-flip-to-front';
+
+//CatImages
+//Object for our cat profiles
 function CatImages(url, alt, title, bio, stories) {
   this.filePath = url;
   this.alt = alt;
@@ -18,6 +28,7 @@ function CatImages(url, alt, title, bio, stories) {
   this.addToAllCats();
 }
 
+//checks if object already exists in allCats before pushing it
 CatImages.prototype.addToAllCats = function() {
   var pushNewCatImage = true;
   for (var i = 0; i < allCats.length; i++) {
@@ -32,7 +43,7 @@ CatImages.prototype.addToAllCats = function() {
   }
 };
 
-CatImages.prototype.render = function(rootElement){
+CatImages.prototype.renderCardFront = function(rootElement){
   var imageElement = document.createElement('img');
   imageElement.src = this.filePath;
   imageElement.alt = this.alt;
@@ -43,7 +54,7 @@ CatImages.prototype.render = function(rootElement){
   rootElement.appendChild(imageElement);
 };
 
-CatImages.prototype.renderCardBackside = function(rootElement) {
+CatImages.prototype.renderCardBack = function(rootElement) {
   while (rootElement.firstChild) {
     rootElement.removeChild(rootElement.firstChild);
   }
@@ -54,6 +65,7 @@ CatImages.prototype.renderCardBackside = function(rootElement) {
 };
 
 //MatchedCats
+//Object for our pairs of matched cat profiles (CatImages)
 function MatchedCats(matchedCatOne, matchedCatTwo, matchTitle, storyFromStorage) {
   this.matchedCatOne = matchedCatOne;
   this.matchedCatTwo = matchedCatTwo;
@@ -66,6 +78,8 @@ function MatchedCats(matchedCatOne, matchedCatTwo, matchTitle, storyFromStorage)
   allMatchedCats.push(this);
 }
 
+//MESSY - needs refactoring
+//builds the story array from the MatchedCats two CatImage objects
 MatchedCats.prototype.storyBuilder = function() {
   var storyArrayBuilder = [];
   var catOneRandomIndexOne = getRandomIndexValue(this.matchedCatOne.stories);
@@ -120,11 +134,17 @@ function shuffleArray(arr) {
   return returnArray;
 }
 
+/*
+We have two functions right now for getting random index values.
+Fixing that will require a not insignificant refactoring, as they
+work slightly differently.
+*/
 function getRandomIndexValue(arr) {
   return Math.floor(Math.random() * arr.length);
 }
 
 // get index for 2 random images
+//return an array of two random indexes from the allCats array
 function getRandomIndex(){
   var index = randomNumber(allCats.length);
   var indexTwo = randomNumber(allCats.length);
@@ -143,24 +163,29 @@ function randomNumber(max){
 
 // diplay 2 random images
 function displayImages(){
+  //empty the renderedCats array
   renderedCats = [];
-  var index = getRandomIndex();
-
+  //get indexes of cats we're going to render
+  var indexArray = getRandomIndex();
+  //apply presentation animation and reset event listener for left card
   cloneAndReplaceNodeWithAnimation(leftCardParent, leftPresentationCSSAnim);
   leftCardParent = document.getElementById('left-card');
   leftCardParent.addEventListener('click', handleLeftCardClick);
+  //reset ref after node clone
   leftImageFrontParent = document.getElementById('left-card-front');
-  allCats[index[0]].render(leftImageFrontParent);
+  allCats[indexArray[0]].renderCardFront(leftImageFrontParent);
   var leftCardBack = document.getElementById('left-card-back');
-  allCats[index[0]].renderCardBackside(leftCardBack);
+  allCats[indexArray[0]].renderCardBack(leftCardBack);
 
+  //apply presentation animation and reset event listener for right card
   cloneAndReplaceNodeWithAnimation(rightCardParent, rightPresentationCSSAnim);
   rightCardParent = document.getElementById('right-card');
   rightCardParent.addEventListener('click', handleRightCardClick);
+  //reset ref after node clone
   rightImageFrontParent = document.getElementById('right-card-front');
-  allCats[index[1]].render(rightImageFrontParent);
+  allCats[indexArray[1]].renderCardFront(rightImageFrontParent);
   var rightCardBack = document.getElementById('right-card-back');
-  allCats[index[1]].renderCardBackside(rightCardBack);
+  allCats[indexArray[1]].renderCardBack(rightCardBack);
 
 }
 
@@ -226,20 +251,23 @@ function handleNonMatchButton(event){
   displayImages();
 }
 
-//rotation code
+//rotation event handler functions for when a user clicks on the card
 function handleLeftCardClick(event) {
   var eventTarget = event.target;
   var cardContianer = eventTarget;
+  //since it's possible to click on the image, the text, or one of the inner containing divs
+  //we need to make sure we're applying the animations to the container div
   while (cardContianer.id !== 'left-card') {
     cardContianer = cardContianer.parentNode;
   }
   var cloneCardContainer = cardContianer.cloneNode(true);
   cloneCardContainer.addEventListener('click', handleLeftCardClick);
-  cloneCardContainer.classList.remove('left-presentation');
-  if (!cloneCardContainer.classList.toggle('left-card-flip-to-back')) {
-    cloneCardContainer.classList.toggle('left-card-flip-to-front');
+  cloneCardContainer.classList.remove(leftPresentationCSSAnim);
+  if (!cloneCardContainer.classList.toggle(leftCardFlipToBackCSSAnim)) {
+    cloneCardContainer.classList.toggle(leftCardFlipToFrontCSSAnim);
   }
   cardContianer.parentNode.replaceChild(cloneCardContainer, cardContianer);
+  //reset refs after node clone
   leftCardParent = document.getElementById('left-card');
   leftImageFrontParent = document.getElementById('left-card-front');
 }
@@ -247,16 +275,19 @@ function handleLeftCardClick(event) {
 function handleRightCardClick(event) {
   var eventTarget = event.target;
   var cardContianer = eventTarget;
+  //since it's possible to click on the image, the text, or one of the inner containing divs
+  //we need to make sure we're applying the animations to the container div
   while (cardContianer.id !== 'right-card') {
     cardContianer = cardContianer.parentNode;
   }
   var cloneCardContainer = cardContianer.cloneNode(true);
   cloneCardContainer.addEventListener('click', handleRightCardClick);
-  cloneCardContainer.classList.remove('right-presentation');
-  if (!cloneCardContainer.classList.toggle('right-card-flip-to-back')) {
-    cloneCardContainer.classList.toggle('right-card-flip-to-front');
+  cloneCardContainer.classList.remove(rightPresentationCSSAnim);
+  if (!cloneCardContainer.classList.toggle(rightCardFlipToBackCSSAnim)) {
+    cloneCardContainer.classList.toggle(rightCardFlipToFrontCSSAnim);
   }
   cardContianer.parentNode.replaceChild(cloneCardContainer, cardContianer);
+  //reset refs after node clone
   rightCardParent = document.getElementById('right-card');
   leftImageFrontParent = document.getElementById('right-card-front');
 }
