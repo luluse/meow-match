@@ -6,17 +6,15 @@ header>section {
 
 section#logo {
   float: left;
-  margin-top: 75px;
-  
-  
-  overflow: auto;
-  max-width:100%;
   height: auto;
+  overflow: auto;
+  margin-top: 75px;
+  max-width:100%;
 }
 
 section#logo img {
-  position: absolute;
   left: calc(50% - 150px);
+  position: absolute;
   width: 300px;
 }
 
@@ -31,24 +29,6 @@ nav.horizontal-nav {
 nav.horizontal-nav a:hover {
   background-color: rgb(218, 224, 242);
   color: rgb(17, 17, 68);
-}
-#welcome{
-  font-size: 5em;
-  font-family: 'Oswald', sans-serif;
-}
-
-#welcomeParagraph{
-  color: rgb(73, 72, 72);
-  font-size: 1.5em;
-  font-family:'Oswald', sans-serif;
-  line-height: 35px;
-
-}
-#disclaimer{
-  font-family:'Oswald', sans-serif;
-  font-size: 1em;
-  line-height: 45px;
-  color: rgb(80, 80, 80);
 }
 
 nav.horizontal-nav a {
@@ -81,10 +61,10 @@ h1#about-us-header {
   color: rgb(54, 54, 54);
   font-family: 'Oswald', sans-serif;
   font-size: 8em;
-  line-height: 120px;
+  line-height: 130px;
   text-align: left;
   text-align: center;
-  text-shadow: 1.5px 1.5px cadetblue; 
+  /* text-shadow: 1.5px 1.5px cadetblue;  */
 }
 
 section#matches-list {
@@ -188,15 +168,49 @@ footer h3 {
   text-align: center;
   font-family: 'Nunito', sans-serif;
   color: grey;
-  
-
 }
+  
+#welcomen{
+  font-size: 5em;
+  font-family: 'Oswald', sans-serif;  
+}
+#matchesontop {
+  font-family:'Oswald', sans-serif;
+  font-size: 8em;
+  line-height: px;
+  color: rgb(73, 72, 72);
+  text-shadow: 2px 2px cadetblue;
+  
+}
+#oldestontop {
+    text-align: center;
+    font-family:'Oswald', sans-serif;
+    color: rgb(73, 72, 72);
+    font-style: italic;
+    font-size: 3em;
+  
+  
+}
+#welcomeParagraph {
+    color: rgb(73, 72, 72);
+    font-size: 1.5em;
+    font-family:'Oswald', sans-serif;
+    line-height: 35px;
+  }
+  
+#disclaimer {
+    font-family:'Oswald', sans-serif;
+    font-size: 1em;
+    line-height: 45px;
+    color: rgb(80, 80, 80);
+}
+
 a {
   font-family:'Nunito', sans-serif;
   color: grey;
 }
 
-#chrispic{
+#chrispic {
   position: relative;
   bottom: 30px;
 }
@@ -239,9 +253,32 @@ section.bio img:not(.icon-image) {
   font-family: 'Nunito', sans-serif;
   text-align: right;
   color: rgb(54, 54, 54);
-  text-shadow: 1px 1px grey;
-}
+  
  
+  padding-right: 10px;
+}
+#meowmatch{
+  color: cadetblue;
+  font-size: 1.45em;
+  
+}
+ #paul{
+   color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+   }
+
+#lulu {
+  color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+}
+#chris{
+  color:  rgb(231, 231, 231);
+   -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+   font-style: italic;
+}
+
 #bio-p{
   font-family: 'Nunito', sans-serif;
   color: black
@@ -250,12 +287,51 @@ section.bio img:not(.icon-image) {
 #bio-ppaul{
   position:relative;
   line-height: 32px;
+  color:  rgb(231, 231, 231);
+}
+#bio-ppaul:hover{
+  position:relative;
+  line-height: 32px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
+
+}
+#bottompaul{
+  position: relative;
+  right: 270px;
+  z-index: -1;
 }
 #bio-plulu{
   line-height: 30px;
+  color:  rgb(231, 231, 231);
+}
+#bio-plulu:hover{
+  line-height: 30px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
+}
+#bottomlulu{
+  position: relative;
+  right:270px;
+  top:0px;
+  z-index:-1;
+  height: 250px;
 }
 #bio-pchris{
   line-height: 34px;
+  color:  rgb(231, 231, 231);
+}
+#bio-pchris:hover{
+  line-height: 34px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
+}
+#bottomchris{
+  position: relative;
+  height:250px;
+  right:270px;
+  bottom:30px;
+  z-index: -1;
 }
 #bio-p:hover{
   font-family: 'Nunito', sans-serif;
