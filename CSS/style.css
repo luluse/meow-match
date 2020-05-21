@@ -36,7 +36,23 @@ nav.horizontal-nav a:hover {
   font-size: 5em;
   font-family: 'Oswald', sans-serif;
 }
+#matchesontop{
+  font-family:'Oswald', sans-serif;
+  font-size: 8em;
+  line-height: px;
+  color: rgb(73, 72, 72);
+  text-shadow: 2px 2px cadetblue;
 
+}
+#oldestontop {
+  text-align: center;
+  font-family:'Oswald', sans-serif;
+  color: rgb(73, 72, 72);
+  font-style: italic;
+  font-size: 3em;
+
+
+}
 #welcomeParagraph{
   color: rgb(73, 72, 72);
   font-size: 1.5em;
@@ -240,6 +256,8 @@ section.bio img:not(.icon-image) {
   text-align: right;
   color: rgb(54, 54, 54);
   text-shadow: 1px 1px grey;
+  font-style: italic;
+  padding-right: 10px;
 }
  
 #bio-p{
@@ -250,12 +268,32 @@ section.bio img:not(.icon-image) {
 #bio-ppaul{
   position:relative;
   line-height: 32px;
+  color:  rgb(231, 231, 231);
+}
+#bio-ppaul:hover{
+  position:relative;
+  line-height: 32px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
+
 }
 #bio-plulu{
   line-height: 30px;
+  color:  rgb(231, 231, 231);
+}
+#bio-plulu:hover{
+  line-height: 30px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
 }
 #bio-pchris{
   line-height: 34px;
+  color:  rgb(231, 231, 231);
+}
+#bio-pchris:hover{
+  line-height: 34px;
+  color:  rgb(54, 54, 54);
+  transition: 5s;
 }
 #bio-p:hover{
   font-family: 'Nunito', sans-serif;
