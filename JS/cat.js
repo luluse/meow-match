@@ -1,29 +1,37 @@
 'use strict';
 
-
-var uniqueIndexArray = [];
-var sentences = [`${pairOfMatchedCats[0].title} got too wound up on coffee and fell asleep, ${pairOfMatchedCats[1].title} was upset.`,
-  `${pairOfMatchedCats[0].title} went hosted a large party and invited all of their friends, and ${pairOfMatchedCats[1].title} came along for the fun.`,
-  `${pairOfMatchedCats[0].title} got lost in a book and never showed up for their playdate ${pairOfMatchedCats[1].title} kept calling and calling, but never got through.`,
-  `${pairOfMatchedCats[0].title} decided to ${pairOfMatchedCats[1].title} on a fun safari meeting all sorts of different animals.`];
-
+//CSS animation HTML classes
+var leftPresentationCSSAnim = 'left-presentation';
+var rightPresentationCSSAnim = 'right-presentation';
+var leftCardMatchCSSAnim = 'left-card-match';
+var rightCardMatchCSSAnim = 'right-card-match';
+var leftCardNonMatchCSSAnim = 'left-card-non-match';
+var rightCardNonMatchCSSAnim = 'right-card-non-match';
 
 // create my constructor function to hold my cats instances
-function CatImages(url, alt, title, a, uniqueIndexArray){
+function CatImages(url, alt, title, bio, stories) {
   this.filePath = url;
   this.alt = alt;
   this.title = title;
-  this.a = a;
-  this.b = uniqueIndexArray;
-  // this.c = c;
-  // this.d = d;
-
-
-
-  allCats.push(this);
-
-
+  this.bio = bio;
+  this.stories = stories;
+  this.addToAllCats();
 }
+
+CatImages.prototype.addToAllCats = function() {
+  var pushNewCatImage = true;
+  for (var i = 0; i < allCats.length; i++) {
+    if (allCats[i].filePath === this.filePath) {
+      pushNewCatImage = false;
+      allCats.splice(i, 1, this);
+      break;
+    }
+  }
+  if (pushNewCatImage) {
+    allCats.push(this);
+  }
+};
+
 CatImages.prototype.render = function(rootElement){
   var imageElement = document.createElement('img');
   imageElement.src = this.filePath;
@@ -35,21 +43,86 @@ CatImages.prototype.render = function(rootElement){
   rootElement.appendChild(imageElement);
 };
 
+CatImages.prototype.renderCardBackside = function(rootElement) {
+  while (rootElement.firstChild) {
+    rootElement.removeChild(rootElement.firstChild);
+  }
+  var catBioPEl = document.createElement('p');
+  catBioPEl.setAttribute('class', 'cat-bio');
+  catBioPEl.innerText = this.bio;
+  rootElement.appendChild(catBioPEl);
+};
 
-new CatImages('catImages/berlioz.png', 'berlioz', 'berlioz');
-new CatImages('catImages/biscoff.png', 'biscoff', 'biscoff');
-new CatImages('catImages/clawdia.png', 'clawdia', 'clawdia');
-new CatImages('catImages/crumpet.png', 'crumpet', 'crumpet');
-new CatImages('catImages/fritz.png', 'fritz', 'fritz');
-new CatImages('catImages/judy.png', 'judy', 'judy');
-new CatImages('catImages/poncho.png', 'poncho', 'poncho');
-new CatImages('catImages/romy.png', 'romy', 'romy');
-new CatImages('catImages/saffron.png', 'saffron', 'saffron');
-new CatImages('catImages/sasha.png', 'sasha', 'sasha');
-new CatImages('catImages/taz.png', 'taz', 'taz');
-new CatImages('catImages/twizzers.png', 'twizzers', 'twizzers');
+//MatchedCats
+function MatchedCats(matchedCatOne, matchedCatTwo, matchTitle, storyFromStorage) {
+  this.matchedCatOne = matchedCatOne;
+  this.matchedCatTwo = matchedCatTwo;
+  this.matchTitle = matchTitle;
+  if (!storyFromStorage) {
+    this.matchStory = this.storyBuilder();
+  } else {
+    this.matchStory = storyFromStorage;
+  }
+  allMatchedCats.push(this);
+}
+
+MatchedCats.prototype.storyBuilder = function() {
+  var storyArrayBuilder = [];
+  var catOneRandomIndexOne = getRandomIndexValue(this.matchedCatOne.stories);
+  var catOneRandomIndexTwo = getRandomIndexValue(this.matchedCatOne.stories);
+  while (catOneRandomIndexOne === catOneRandomIndexTwo) {
+    catOneRandomIndexTwo = getRandomIndexValue(this.matchedCatOne.stories);
+  }
+  var catTwoRandomIndexOne = getRandomIndexValue(this.matchedCatTwo.stories);
+  var catTwoRandomIndexTwo = getRandomIndexValue(this.matchedCatTwo.stories);
+  while (catTwoRandomIndexOne === catTwoRandomIndexTwo) {
+    catTwoRandomIndexTwo = getRandomIndexValue(this.matchedCatTwo.stories);
+  }
+
+  var catOneStories = [];
+  catOneStories.push(this.matchedCatOne.stories[catOneRandomIndexOne]);
+  catOneStories.push(this.matchedCatOne.stories[catOneRandomIndexTwo]);
+  this.storyMatching(catOneStories, this.matchedCatTwo);
+  storyArrayBuilder.push(catOneStories[0]);
+  storyArrayBuilder.push(catOneStories[1]);
+
+  var catTwoStories = [];
+  catTwoStories.push(this.matchedCatTwo.stories[catTwoRandomIndexOne]);
+  catTwoStories.push(this.matchedCatTwo.stories[catTwoRandomIndexTwo]);
+  this.storyMatching(catTwoStories, this.matchedCatOne);
+  storyArrayBuilder.push(catTwoStories[0]);
+  storyArrayBuilder.push(catTwoStories[1]);
+
+  return shuffleArray(storyArrayBuilder).join();
+};
+
+MatchedCats.prototype.storyMatching = function(storiesArray, storyPartner) {
+  for (var i = 0; i < storiesArray.length; i++) {
+    storiesArray[i] = storiesArray[i].replace('____', storyPartner.title);
+  }
+};
 
 
+//non-object functions
+function cloneAndReplaceNodeWithAnimation(node, animationClassToAdd) {
+  var cloneNode = node.cloneNode(true);
+  cloneNode.className = '';
+  cloneNode.classList.add(animationClassToAdd);
+  node.parentNode.replaceChild(cloneNode, node);
+}
+
+function shuffleArray(arr) {
+  var returnArray = [];
+  while (arr.length > 0) {
+    var randomIndex = getRandomIndexValue(arr);
+    returnArray.push(arr.splice(randomIndex, 1));
+  }
+  return returnArray;
+}
+
+function getRandomIndexValue(arr) {
+  return Math.floor(Math.random() * arr.length);
+}
 
 // get index for 2 random images
 function getRandomIndex(){
@@ -60,35 +133,8 @@ function getRandomIndex(){
     index = randomNumber(allCats.length);
     indexTwo = randomNumber(allCats.length);
   }
-  // uniqueIndexArray.push(index, indexTwo);
-
-  // if(uniqueIndexArray.length > 4){
-  //   uniqueIndexArray.shift();
-  // }
-
   return [index, indexTwo];
 }
-
-//get random sentences
-// function getRandomSentence(){
-//   var index = randomNumber(sentences.length);
-
-//   while(uniqueIndexArray.includes(index)){
-//     index = randomNumber(sentences.length);
-//   }
-//   uniqueIndexArray.push(index);
-//   if (uniqueIndexArray.length>9){
-//     uniqueIndexArray.shift();
-//   }
-//   for(var i = 0; i< uniqueIndexArray.length; i++){
-//     uniqueIndexArray[i].push(allCats[3]);
-//   }
-
-//   return index;
-// }
-// getRandomSentence();
-
-
 
 // helper function
 function randomNumber(max){
@@ -99,54 +145,55 @@ function randomNumber(max){
 function displayImages(){
   renderedCats = [];
   var index = getRandomIndex();
-  allCats[index[0]].render(parentLeft);
-  allCats[index[1]].render(parentRight);
 
-  // totalRounds++;
+  cloneAndReplaceNodeWithAnimation(leftCardParent, leftPresentationCSSAnim);
+  leftCardParent = document.getElementById('left-card');
+  leftCardParent.addEventListener('click', handleLeftCardClick);
+  leftImageFrontParent = document.getElementById('left-card-front');
+  allCats[index[0]].render(leftImageFrontParent);
+  var leftCardBack = document.getElementById('left-card-back');
+  allCats[index[0]].renderCardBackside(leftCardBack);
+
+  cloneAndReplaceNodeWithAnimation(rightCardParent, rightPresentationCSSAnim);
+  rightCardParent = document.getElementById('right-card');
+  rightCardParent.addEventListener('click', handleRightCardClick);
+  rightImageFrontParent = document.getElementById('right-card-front');
+  allCats[index[1]].render(rightImageFrontParent);
+  var rightCardBack = document.getElementById('right-card-back');
+  allCats[index[1]].renderCardBackside(rightCardBack);
+
 }
 
-// create 12 rounds
-// if (totalRounds === 12){
-//stop the event listener
-// }
-
-displayImages();
-// new CatImages('img/berlioz.jpg', 'berlioz', 'berlioz');
-// new CatImages('img/biscoff.jpg', 'biscoff', 'biscoff');
-// new CatImages('img/clawdia.jpg', 'clawdia', 'clawdia');
-// new CatImages('img/crumpet.jpg', 'crumpet', 'crumpet');
-// new CatImages('img/fritz.jpg', 'fritz', 'fritz');
-// new CatImages('img/judy.jpg', 'judy', 'judy');
-// new CatImages('img/poncho.jpg', 'poncho', 'poncho');
-// new CatImages('img/romy.jpg', 'romy', 'romy');
-// new CatImages('img/saffron.jpg', 'saffron', 'saffron');
-// new CatImages('img/sasha.jpg', 'sasha', 'sasha');
-// new CatImages('img/taz.jpg', 'taz', 'taz');
-// new CatImages('img/twizzers.jpg', 'twizzers', 'twizzers');
-// cats that match sent on local storage
-
 function catsSendtoLocalStorage(){
-  window.localStorage.setItem(matchedCatsKey, JSON.stringify(matchedCats));
+  window.localStorage.setItem(matchedCatsKey, JSON.stringify(allMatchedCats));
 }
 
 function restoreMatchedCatsFromStorage() {
   var parsedMatchedCats = JSON.parse(window.localStorage.getItem(matchedCatsKey));
   if (parsedMatchedCats) {
     for (var i = 0; i < parsedMatchedCats.length; i++) {
-      var onePairOfMatchedCats = parsedMatchedCats[i];
-      var pairOfMatchedCatsArray = [];
-      for (var j = 0; j < onePairOfMatchedCats.length; j++) {
-        var oneMatchedCat = onePairOfMatchedCats[j];
-        pairOfMatchedCatsArray.push(
-          new CatImages(oneMatchedCat.filePath, oneMatchedCat.alt, oneMatchedCat.title, oneMatchedCat.a, oneMatchedCat.b, oneMatchedCat.c, oneMatchedCat.d)
-        );
-      }
-      matchedCats.push(pairOfMatchedCatsArray);
+      var oneMatchCatElement = parsedMatchedCats[i];
+      new MatchedCats(
+        new CatImages(
+          oneMatchCatElement.matchedCatOne.filePath,
+          oneMatchCatElement.matchedCatOne.alt,
+          oneMatchCatElement.matchedCatOne.title,
+          oneMatchCatElement.matchedCatOne.bio,
+          oneMatchCatElement.matchedCatOne.stories
+        ),
+        new CatImages(
+          oneMatchCatElement.matchedCatTwo.filePath,
+          oneMatchCatElement.matchedCatTwo.alt,
+          oneMatchCatElement.matchedCatTwo.title,
+          oneMatchCatElement.matchedCatTwo.bio,
+          oneMatchCatElement.matchedCatTwo.stories
+        ),
+        oneMatchCatElement.matchTitle,
+        oneMatchCatElement.matchStory
+      );
     }
   }
 }
-
-
 
 function displayingCatMatches(){
   var matchesToMatchesPage = document.createElement('img');
@@ -154,83 +201,62 @@ function displayingCatMatches(){
   parentMatches.appendChild(matchesToMatchesPage);
 }
 
-displayingCatMatches();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// get matches from local storage to render on matches.html page
-// function
-// var renderMatches = localStorage.getItem('catsThatMatch');
-// var renderDateMatch = localStorage.getItem('dateOfMatch');
-// renderMatches = JSON.parse(renderMatches);
-// renderDateMatch = JSON.parse(renderDateMatch);
-
-
-
 // buttons event listener functions
 function handleMatchButton(event){
+  var newMatchedCats = new MatchedCats(renderedCats[0], renderedCats[1]);
   matchedCats.push(renderedCats);
   catsSendtoLocalStorage();
-  parentLeft.textContent = '';
-  parentRight.textContent = '';
+
+  // cloneAndReplaceNodeWithAnimation(leftCardParent, leftCardMatchCSSAnim);
+  // leftCardParent = document.getElementById('left-card');
+  // leftImageFrontParent = document.getElementById('left-card-front');
+  leftImageFrontParent.textContent = '';
+
+  // cloneAndReplaceNodeWithAnimation(rightCardParent, rightCardMatchCSSAnim);
+  // rightCardParent = document.getElementById('right-card');
+  // rightImageFrontParent = document.getElementById('right-card-front');
+  rightImageFrontParent.textContent = '';
+
   displayImages();
 }
 
 function handleNonMatchButton(event){
-  parentLeft.textContent = '';
-  parentRight.textContent = '';
+  leftImageFrontParent.textContent = '';
+  rightImageFrontParent.textContent = '';
   displayImages();
 }
 
-restoreMatchedCatsFromStorage();
+//rotation code
+function handleLeftCardClick(event) {
+  var eventTarget = event.target;
+  var cardContianer = eventTarget;
+  while (cardContianer.id !== 'left-card') {
+    cardContianer = cardContianer.parentNode;
+  }
+  var cloneCardContainer = cardContianer.cloneNode(true);
+  cloneCardContainer.addEventListener('click', handleLeftCardClick);
+  cloneCardContainer.classList.remove('left-presentation');
+  if (!cloneCardContainer.classList.toggle('left-card-flip-to-back')) {
+    cloneCardContainer.classList.toggle('left-card-flip-to-front');
+  }
+  cardContianer.parentNode.replaceChild(cloneCardContainer, cardContianer);
+  leftCardParent = document.getElementById('left-card');
+  leftImageFrontParent = document.getElementById('left-card-front');
+}
 
-//event listener for match and non-match buttons
-document.getElementById('match-button').addEventListener('click', handleMatchButton);
-document.getElementById('non-match-button').addEventListener('click', handleNonMatchButton);
-
-
-//Get out of local storage
-// function catsOutOfLocalStorage(){
-//   var jSonToJava = localStorage.getItem(matchedCatsKey);
-//   jSonToJava = JSON.parse(jSonToJava);
-//   for (var i=0; i<jSonToJava.length; i++){
-//     new CatImages(jSonToJava[i].filepath,jSonToJava[i].alt, jSonToJava[i].title);
-//     var matchesToMatchesPage = document.createElement('img');
-//     matchesToMatchesPage.src=this.filepath;
-//     matchesToMatchesPage.alt=this.alt;
-//     matchesToMatchesPage.title=this.title;
-//     parentMatches.appendChild(matchesToMatchesPage);
-//   }
-
-// }
-
-
-
-
-
+function handleRightCardClick(event) {
+  var eventTarget = event.target;
+  var cardContianer = eventTarget;
+  while (cardContianer.id !== 'right-card') {
+    cardContianer = cardContianer.parentNode;
+  }
+  var cloneCardContainer = cardContianer.cloneNode(true);
+  cloneCardContainer.addEventListener('click', handleRightCardClick);
+  cloneCardContainer.classList.remove('right-presentation');
+  if (!cloneCardContainer.classList.toggle('right-card-flip-to-back')) {
+    cloneCardContainer.classList.toggle('right-card-flip-to-front');
+  }
+  cardContianer.parentNode.replaceChild(cloneCardContainer, cardContianer);
+  rightCardParent = document.getElementById('right-card');
+  leftImageFrontParent = document.getElementById('right-card-front');
+}
