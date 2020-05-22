@@ -2,6 +2,7 @@ header>section {
   background-color: cadetblue;
   height: 285px;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 section#logo {
@@ -16,7 +17,7 @@ section#logo {
 section#logo img {
   left: calc(50% - 150px);
   position: absolute;
-  width: 300px; 
+  width: 350px; 
 }
 
 nav.horizontal-nav {
@@ -66,6 +67,8 @@ h1#about-us-header {
   line-height: 130px;
   text-align: left;
   text-align: center;
+  position: relative;
+  bottom: 30px;
   /* text-shadow: 1.5px 1.5px cadetblue;  */
 }
 
@@ -76,10 +79,11 @@ section#matches-list {
 section#intro {
   border: 4px solid cadetblue;
   border-radius: 10px;
-  margin: 10px auto;
+  margin: 30px auto;
   max-width: 75%;
-  padding: 5px;
+  padding: 20px;
   text-align: center;
+  /* margin-bottom: 30px; */
 }
 
 section#intro h2 { 
@@ -94,7 +98,8 @@ section#card-match {
   align-items: center;
   display: flex;
   justify-content: center;
-  vertical-align: middle;  
+  vertical-align: middle;
+  margin-bottom: 30px;  
 }
 
 .cat-match-title{
@@ -159,7 +164,7 @@ div#right-card {
 }
 
 .card-back {
-  background-color: rgb(82, 21, 78);
+  background-color: rgb(105, 104, 105);
   border-radius: 5px;
   color: rgb(196, 193, 193);
   font-size: .8em;
@@ -200,6 +205,7 @@ button {
   height: 50px;
   margin-top: 20px;
   width: 125px;
+  font-family: 'Nunito', sans-serif;;
 }
 
 button:hover {
@@ -333,7 +339,7 @@ section.bio img:not(.icon-image) {
 }
 
 #names{
-  color: rgb(54, 54, 54);
+  color:cadetblue;
   font-size:3.5em;
   font-family: 'Nunito', sans-serif;
   padding-right: 10px;
