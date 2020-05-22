@@ -107,13 +107,16 @@ MatchedCats.prototype.storyBuilder = function() {
   storyArrayBuilder.push(catTwoStories[0]);
   storyArrayBuilder.push(catTwoStories[1]);
 
-  return shuffleArray(storyArrayBuilder).join();
+  var shuffledAndJoined = shuffleArray(storyArrayBuilder).join(' ');
+  return shuffledAndJoined;
 };
 
 MatchedCats.prototype.storyMatching = function(storiesArray, storyPartner) {
+  //make first letter of partner cat's name uppercase in stories
+  var storyPartnerName = storyPartner.title.charAt(0).toUpperCase() + storyPartner.title.slice(1);
   for (var i = 0; i < storiesArray.length; i++) {
     // storiesArray[i] = storiesArray[i].replace('____', storyPartner.title);
-    storiesArray[i] = storiesArray[i].replace(/____/g, storyPartner.title);
+    storiesArray[i] = storiesArray[i].replace(/____/g, storyPartnerName);
   }
 };
 
