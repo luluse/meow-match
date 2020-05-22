@@ -363,7 +363,7 @@ section.bio img:not(.icon-image) {
 }
 
 #bio-p{
-  color: black
+  color: black;
   font-family: 'Nunito', sans-serif;
 }
 
