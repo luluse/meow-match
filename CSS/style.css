@@ -1,0 +1,665 @@
+header>section {
+  background-color: cadetblue;
+  height: 285px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+section#logo {
+  float: left;
+  height: auto;
+  overflow: auto;
+  margin-top: 75px;
+  max-width:100%;
+}
+
+
+section#logo img {
+  left: calc(50% - 150px);
+  position: absolute;
+  width: 350px; 
+}
+
+nav.horizontal-nav {
+  display: flex;
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+
+nav.horizontal-nav a:hover {
+  background-color: rgb(218, 224, 242);
+  color: rgb(17, 17, 68);
+}
+
+nav.horizontal-nav a {
+  border-bottom: 3px solid rgb(82, 21, 78);
+  border-top: 3px solid rgb(82, 21, 78);
+  color: rgb(82, 21, 78);
+  font-size: 1.6em;
+  padding: 15px;
+  
+}
+
+nav.horizontal-nav a:first-child {
+  border-left: 3px solid rgb(82, 21, 78);
+}
+
+nav.horizontal-nav a:not(:last-child) {
+  border-right: 3px solid rgb(82, 21, 78);
+}
+
+nav.horizontal-nav a:last-child {
+  border-right: 3px solid rgb(82, 21, 78);
+}
+
+h1 {
+  font-size: 2.6em;
+  padding: 10px;
+  text-align: center;
+}
+
+h1#about-us-header {
+  color: rgb(54, 54, 54);
+  font-family: 'Oswald', sans-serif;
+  font-size: 8em;
+  line-height: 130px;
+  text-align: left;
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+  /* text-shadow: 1.5px 1.5px cadetblue;  */
+}
+
+section#matches-list {
+  margin: 10px 0px;
+}
+
+section#intro {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 75%;
+  padding: 20px;
+  text-align: center;
+  /* margin-bottom: 30px; */
+}
+
+section#intro h2 { 
+  padding: 5px;
+}
+
+section#intro p {
+  text-align: right;
+}
+
+section#card-match {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  margin-bottom: 30px;  
+}
+
+.cat-match-title{
+  color: rgb(104, 104, 105);
+  font-size: 2.5em;
+  font-family:'Nunito', sans-serif; 
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.story-section{
+  color:rgb(80, 80, 82);
+  font-family: 'Nunito', sans-serif;
+  font-size: 2em;
+  line-height: 25px;
+  text-align: justify;
+  text-justify: inter-word; 
+  
+}
+.card-front {
+  backface-visibility: hidden;
+  /* bottom: 0px; */
+  background-color: cadetblue;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+form{
+  color: rgb(104, 104, 105);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5em;
+  padding: 2px;
+}
+div#left-card {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 350px;
+  margin: 25px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  width: 250px;
+}
+
+div#right-card {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 350px;
+  margin: 25px;
+  margin-right: 30px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  width:350px;
+  width: 250px; 
+}
+
+.card-back {
+  background-color: rgb(105, 104, 105);
+  border-radius: 5px;
+  color: rgb(196, 193, 193);
+  font-size: .8em;
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+  line-height: 25px;
+  position: absolute;
+  text-align: center;
+  transform: scale(-1, 1);
+  vertical-align: middle;
+  width: 100%;
+  z-index: 1;
+  }
+
+
+.cat-bio {
+  color: white;
+  font-size: 1.35em;
+  padding: 10px;
+  text-align: left;
+}
+
+section#card-match img {
+  border-radius: 5px;
+  left:14px;
+  max-width: 100%;
+  max-height: 95%;
+  position: relative;
+  top: 7px;
+}
+
+button {
+  background-color: cadetblue;
+  border: none;
+  color: rgb(82, 21, 78);
+  display: block;
+  font-size: 1.2em;
+  height: 50px;
+  margin-top: 20px;
+  width: 125px;
+  font-family: 'Nunito', sans-serif;;
+}
+
+button:hover {
+  background-color: rgb(218, 224, 242);
+  color: rgb(17, 17, 68);
+}
+
+footer>nav {
+  align-items: center;
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 75%;
+  padding: 0px 5px;
+}
+
+footer>nav a {
+  padding: 10px;
+  text-align: center;
+}
+
+footer>nav a:hover{
+  opacity:50%
+}
+
+footer>nav img {
+  width: 50px;
+}
+
+span#footer-nav-spacer {
+  width: 175px;
+}
+
+footer h3 {
+  color: grey;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2em;
+  line-height: 1px;
+  padding-top: 30px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+
+#welcome{
+  font-family: 'Oswald', sans-serif;  
+  font-size: 5em;
+}
+
+#matchesontop {
+  color: rgb(73, 72, 72);
+  font-family: 'Gruppo', sans-serif;
+  font-size: 9em;
+  line-height: px;
+  padding-bottom: 0px;
+  padding-top: 20px;
+  
+}
+
+#oldestontop {
+  color: cadetblue;
+  font-family:'Oswald', sans-serif;
+  font-style: italic;
+  font-size: 3em;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+#welcomeParagraph {
+  color: rgb(73, 72, 72);
+  font-size: 1.5em;
+  font-family:'Oswald', sans-serif;
+  line-height: 35px;
+}
+  
+#disclaimer {
+  color: rgb(80, 80, 80);
+  font-family:'Oswald', sans-serif;
+  font-size: 1em;
+  line-height: 45px;
+}
+
+a {
+  color: grey;
+  font-family:'Nunito', sans-serif;
+}
+
+#chrispic {
+  border-radius: 15px;
+  bottom: 30px;
+  position: relative;
+}
+
+#chrispic:hover{
+  border-radius: 15px;
+  opacity:30%;
+  transition:3s;
+}
+#paulpic{
+  border-radius: 15px;
+  bottom: 30px;
+  position: relative;
+}
+
+#paulpic:hover{
+  border-radius: 15px;
+  opacity:30%;
+  transition:3s;
+}
+
+#lulupic{ 
+  transition:3s;
+  border-radius: 15px;
+}
+
+#lulupic:hover{
+  border-radius: 15px;
+  opacity: 30%;
+  transition:3s;
+}
+
+body{
+  background-color: rgb(231, 231, 231);
+}
+
+section.bio img:not(.icon-image) {
+  float: left;
+  padding: 0px 10px 10px 10px;
+  max-width: 250px;
+}
+
+#names{
+  color:cadetblue;
+  font-size:3.5em;
+  font-family: 'Nunito', sans-serif;
+  padding-right: 10px;
+  text-align: right;
+}
+
+#meowmatch{
+  color: cadetblue;
+  font-size: 1.45em;
+}
+ #paul{
+  color:  rgb(231, 231, 231);
+  font-style: italic;
+  -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+}
+
+#lulu {
+  color:  rgb(231, 231, 231);
+  font-style: italic;
+  -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+}
+
+#chris{
+  color:  rgb(231, 231, 231);
+  font-style: italic;
+  -webkit-text-stroke: 1.5px rgb(54, 54, 54);
+}
+
+#bio-p{
+  color: black;
+  font-family: 'Nunito', sans-serif;
+}
+
+#bio-ppaul{
+  color:  rgb(231, 231, 231);
+  line-height: 40px;
+  padding:9px;
+  position:relative;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bio-ppaul:hover{
+  color:  rgb(54, 54, 54);
+  line-height: 40px;
+  padding:9px;
+  position:relative;
+  transition: 5s;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bio-plulu{
+  color:  rgb(231, 231, 231);
+  line-height: 36px;
+  padding: 9px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bio-plulu:hover{
+  color:  rgb(54, 54, 54);
+  line-height: 36px;
+  padding: 9px;
+  text-align: justify;
+  text-justify: inter-word;
+  transition: 5s;
+}
+
+#bio-pchris{
+  color:  rgb(231, 231, 231);
+  line-height: 40px;
+  padding: 7px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bio-pchris:hover{
+  color:  rgb(54, 54, 54);
+  line-height: 40px;
+  padding: 7px;
+  transition: 5s;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bio-p:hover{
+  color:black;
+  font-family: 'Nunito', sans-serif;
+  transition: 1.5s;
+}
+
+section.bio {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  clear: left;
+  margin: 10px auto;
+  max-width: 85%;
+  overflow: hidden;
+  padding: 5px;
+}
+
+section.bio h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+section.bio p {
+  font-size: 1.25em;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 10px;
+}
+
+ul.bio-links {
+  margin-top: 10px;
+}
+
+ul.bio-links li {
+  display: inline;
+}
+ul.bio-links li:hover{
+  opacity:45%
+}
+
+ul.bio-links li:not(:first-child) {
+  margin-left: 10px;
+  
+}
+
+section.bio a {
+  text-decoration: none;
+}
+
+span.social-link-text {
+  bottom: 11px;
+  font-size: 1.2em;
+  margin-left: 5px;
+  position: relative;
+}
+
+section.bio img.icon-image {
+  width: 35px;
+}
+
+footer {
+  clear: left;
+}
+
+/* Dynamically Rendered Matches */
+section#matches-list {
+  align-items: center;
+}
+
+section.match-section {
+  border: 4px solid cadetblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 75%;
+}
+
+section.match-images {
+  display: flex;
+  justify-content: center;
+}
+
+section.match-images img {
+  align-self: center;
+  border-radius: 15px;
+  max-width: 25%;
+  margin-bottom: 30px;
+  padding: 20px 20px 0px 20px;
+}
+section.match-images img:hover {
+  align-self: center;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  max-width: 30%;
+  transition:2s;
+}
+
+section.match-images img.left-match-image {
+  margin-right: 15px;
+}
+
+section.match-images img.right-match-image {
+  margin-left: 15px;
+}
+
+section.story-section {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  padding: 0px 15px;
+}
+
+/* Animations */
+.left-presentation {
+  animation-name: leftCardPresentation;
+  animation-duration: 1.0s;
+}
+
+.right-presentation {
+  animation-name: rightCardPresentation;
+  animation-duration: 1.0s;
+}
+
+.left-card-match {
+  animation-name: matchLeftCard;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+}
+
+.right-card-match {
+  animation-name: matchRightCard;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+}
+
+.left-card-non-match {
+  animation-name: nonMatchLeftCard;
+  animation-duration: 1.0s;
+  animation-fill-mode: forwards;
+}
+
+.right-card-non-match {
+  animation-name: nonMatchRightCard;
+  animation-duration: 1.0s;
+  animation-fill-mode: forwards;
+}
+
+.left-card-flip-to-back {
+  animation-name: flipLeftCard;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.right-card-flip-to-back {
+  animation-name: flipRightCard;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.left-card-flip-to-front {
+  animation-name: flipLeftCard;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+.right-card-flip-to-front {
+  animation-name: flipRightCard;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+
+/* Keyframes */
+
+/* Presentation */
+@keyframes leftCardPresentation {
+  0% {
+    transform: translate(-60vw, 10vw) rotate(-30deg);
+  }
+  100% {
+    transform: translate(0%) rotate(0deg);
+  }
+}
+
+@keyframes rightCardPresentation {
+  0% {
+    transform: translate(60vw, 10vw) rotate(30deg);
+  }
+  100% {
+    transform: translate(0%) rotate(0deg);
+  }
+}
+
+/* Match */
+@keyframes matchLeftCard {
+  100% {
+    transform: translate(50px, -60vw) rotate(15deg);
+  }
+}
+
+@keyframes matchRightCard {
+  100% {
+    transform: translate(-50px, -60vw) rotate(-15deg);
+  }
+}
+
+/* Non-Match */
+@keyframes nonMatchLeftCard {
+  50% {
+    transform: translate(-25vw, 50vw) rotate(-15deg);
+  }
+  100% {
+    transform: translate(-65vw, 100vw) rotate(-60deg);
+  }
+}
+
+@keyframes nonMatchRightCard {
+  50% {
+    transform: translate(25vw, 50vw) rotate(15deg);
+  }
+  100% {
+    transform: translate(65vw, 100vw) rotate(60deg);
+  }
+}
+
+/* 3D Rotations */
+@keyframes flipLeftCard {
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flipRightCard {
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
